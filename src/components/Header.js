@@ -5,8 +5,6 @@ import {
 
 
 } from 'react-bootstrap';
-import 'bootstrap/dist/css/bootstrap.css';
-// import 'bootstrap/dist/css/bootstrap-theme.css';
 
 const Header = () => (
 

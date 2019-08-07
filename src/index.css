@@ -12,7 +12,7 @@
   box-sizing: border-box;
 }
 body {
-  background-image: url("NHL_Logo.png");
+  background-image: url("components/NHL_Logo.png");
   margin: 0;
   font-family: 'Roboto', sans-serif;
 }
