@@ -12,12 +12,12 @@ export default class Caro extends React.PureComponent {
 
 
 
-                    
+
                     <Carousel className={'mycaro'}>
                         <Carousel.Item>
                             <img
                                 className="d-block w-100"
-                                src={require("../components/NHL_Logo.png")}
+                                src={require("../img/NHL_Logo.png")}
                                 alt="First slide"
                             />
                             <Carousel.Caption>
@@ -28,7 +28,7 @@ export default class Caro extends React.PureComponent {
                         <Carousel.Item>
                             <img
                                 className="d-block w-100"
-                                src={require("../components/rink2.jpg")}
+                                src={require("../img/rink2.jpg")}
                                 alt="Third slide"
                             />
 
@@ -40,7 +40,7 @@ export default class Caro extends React.PureComponent {
                         <Carousel.Item>
                             <img
                                 className="d-block w-100"
-                                src="NHL_Logo.png"
+                                src="../img/NHL_Logo.png"
                                 alt="Third slide"
                             />
 
