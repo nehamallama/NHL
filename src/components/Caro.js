@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {
-    Carousel, CarouselItem, Container, Jumbotron
+    Carousel, CarouselItem, Container, Jumbotron, Card, Button
 
 
 } from 'react-bootstrap';
@@ -10,9 +10,8 @@ export default class Caro extends React.PureComponent {
 
         return(
 
-
-
-
+            <Card style={{ width: '50rem' }}>
+                <Card.Body>
                     <Carousel className={'mycaro'}>
                         <Carousel.Item>
                             <img
@@ -50,6 +49,14 @@ export default class Caro extends React.PureComponent {
                             </Carousel.Caption>
                         </Carousel.Item>
                     </Carousel>
+
+                    <Button variant="primary">Go somewhere</Button>
+                </Card.Body>
+            </Card>
+
+
+
+
 
 
 

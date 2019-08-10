@@ -155,7 +155,142 @@ header div.head p {
 /*Navbar*/
 .bg-light justify-content-between {
   background: url("img/icebackground.jpg");
+  text-align: center;
+
 }
 
+/*------------- MAIN SECTION -------------------*/
+
+
+main {
+
+  position: relative;
+  z-index: 3;
+  overflow: hidden;
+}
+
+
+main section {
+  width: 70%;
+  /*padding: 90px 0;*/
+  margin: 50px auto 150px auto;
+  display: grid;
+  grid-template-columns: 2fr 3fr;
+  align-items: center;
+
+}
+
+main section h2 {
+  font-size: 4.3rem;
+  color: #ddd;
+  text-transform: uppercase;
+  line-height: 4.2rem;
+  padding-right: 10px;
+  border-right: 3px solid #ddd;
+}
+
+
+
+main section div {
+  position: relative;
+
+}
+
+main section div p {
+  padding-left: 10px;
+}
+/*carousel*/
+.carousel {
+  font-size: 4.3rem;
+  color: #ddd;
+  text-transform: uppercase;
+  line-height: 4.2rem;
+  padding-right: 10px;
+  border-right: 3px solid #ddd;
+
+}
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  height: 100px;
+  width: 100px;
+  outline: black;
+  background-size: 100%, 100%;
+  border-radius: 50%;
+  border: 1px solid black;
+  background-image: none;
+  color:crimson ;
+}
+
+/*card in caro*/
+.card {
+  margin: 0 auto; /* Added */
+  float: none; /* Added */
+  margin-bottom: 10px; /* Added */
+  width: 50%;
+  margin: 0 auto;
+  text-align: center;
+  padding: 12px;
+  border-radius: 10px;
+  text-decoration: none;
+  -webkit-box-shadow: 0px 10px 54px -11px rgba(0,0,0,0.75);
+  -moz-box-shadow: 0px 10px 54px -11px rgba(0,0,0,0.75);
+  box-shadow: 0px 10px 54px -11px rgba(0,0,0,0.75);
+  bottom: 125px
+}
+
+/*!*------------- GALLERY -------------------*!*/
+
+/*.gallery{*/
+  /*display: grid;*/
+  /*grid-template-columns: repeat(3, 1fr);*/
+  /*height: 820px;*/
+  /*width: 95%;*/
+  /*margin: 180px auto 0px auto;*/
+  /*-webkit-box-shadow: 0px 10px 20px -11px rgba(0,0,0,0.9);*/
+  /*-moz-box-shadow: 0px 10px 20px -11px rgba(0,0,0,0.9);*/
+  /*box-shadow: 0px 10px 20px -11px rgba(0,0,0,0.9);*/
+/*}*/
+
+/*.gallery div {*/
+  /*width: 100%;*/
+  /*height: 100%;*/
+  /*position: relative;*/
+  /*overflow: hidden;*/
+  /*filter: grayscale(83%);*/
+/*}*/
+
+/*!* images are not compressed, remember to compress them before deployment *!*/
+/*.gallery div.gallery-item-one {*/
+  /*background: url("./images/toa-heftiba-526264-unsplash.jpg");*/
+  /*background-size: 160%;*/
+  /*grid-column-end: span 2;*/
+  /*grid-row-end: span 2;*/
+/*}*/
+
+/*.gallery div.gallery-item-two {*/
+  /*background: url("./images/chuttersnap-598266-unsplash.jpg");*/
+  /*background-size: 160%;*/
+/*}*/
+/*.gallery div.gallery-item-three {*/
+  /*background: url("./images/rawpixel-196509-unsplash.jpg");*/
+  /*background-size: 160%;*/
+/*}*/
+
+/*.gallery div.gallery-item-four {*/
+  /*background: url("./images/rawpixel-284723-unsplash.jpg");*/
+  /*background-size: 160%;*/
+/*}*/
+/*.gallery div.gallery-item-five {*/
+  /*background: url("./images/volkan-olmez-73767-unsplash.jpg");*/
+  /*background-size: 160%;*/
+/*}*/
+/*.gallery div.gallery-item-six {*/
+  /*background: url("./images/taduuda-72915-unsplash.jpg");*/
+  /*background-size: 160%;*/
+/*}*/
+/*.gallery div.gallery-item-one:hover, .gallery div.gallery-item-two:hover, .gallery div.gallery-item-three:hover, .gallery div.gallery-item-four:hover, .gallery div.gallery-item-five:hover, .gallery div.gallery-item-six:hover{*/
+  /*background-size: 100%;*/
+  /*filter: grayscale(0%);*/
+/*}*/
 
 

@@ -15,6 +15,7 @@ import Jumbo from "./components/Jumbo";
 import Header from "./components/Header";
 
 import Video from "./components/Video";
+import Main from "./components/Main";
 
 
 
@@ -22,8 +23,8 @@ const App = () => {
   return (
       <BrowserRouter>
             <Header/>
-                <Video/>
-                <Caro/>
+                <Main/>
+
 
 
       </BrowserRouter>
