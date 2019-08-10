@@ -7,11 +7,13 @@ import {
   Switch
 } from 'react-router-dom';
 //class imports
-import Header from "./components/Header";
+import Nav from "./components/Nav";
 //bootstrap imports
 import 'bootstrap/dist/css/bootstrap.css';
 import Caro from "./components/Caro";
 import Jumbo from "./components/Jumbo";
+import Header from "./components/Header";
+
 import Video from "./components/Video";
 
 
@@ -19,10 +21,9 @@ import Video from "./components/Video";
 const App = () => {
   return (
       <BrowserRouter>
-        <Header/>
-        <Jumbo/>
-            <Video/>
-            <Caro/>
+            <Header/>
+                <Video/>
+                <Caro/>
 
 
       </BrowserRouter>

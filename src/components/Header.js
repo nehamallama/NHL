@@ -1,29 +1,23 @@
-import React from 'react';
-import { NavLink } from 'react-router-dom';
-import {
-    Navbar, Form, InputGroup, FormControl,Button, Nav, NavDropdown
+import React, {Component} from 'react';
 
+import 'bootstrap/dist/css/bootstrap.css';
+import Nav from "./Nav";
+export default class Header extends React.PureComponent {
 
-} from 'react-bootstrap';
+    render() {
+        return (
 
-const Header = () => (
+            <header>
+                <Nav/>
+                <div className="head">
+                    <h1>We Design,< br/> We Create</h1>
+                    <div>
+                        <p>Integer posuere leo non erat ornare dictum id vitae magna. Proin consectetur iaculis nisi, ut convallis tortor tempor congue. Curabitur sit amet tempus felis. Duis tellus eros, pellentesque at rhoncus eu, maximus ut diam.</p>
+                        <div><a className="contact" href="#">Contact Us</a></div>
+                    </div>
+                </div>
 
-  <header>
-      <Navbar className="bg-light justify-content-between">
-          <Form inline>
-              <FormControl type="text" placeholder="Search" className=" mr-sm-2" />
-              <Button type="submit">Submit</Button>
-          </Form>
-          <Form inline adjustsFontSizeToFit={true} >
-              {' NHL'}
-
-          </Form>
-
-          <Form inline>
-                  <Button type="submit">Login</Button>
-          </Form>
-      </Navbar>
-  </header>
-);
-
-export default Header;
+            </header>
+        );
+    }
+}
