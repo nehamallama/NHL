@@ -9,7 +9,7 @@ import {
 const Header = () => (
 
   <header>
-      <Navbar className="bg-light justify-content-between" >
+      <Navbar className="bg-light justify-content-between">
           <Form inline>
               <FormControl type="text" placeholder="Search" className=" mr-sm-2" />
               <Button type="submit">Submit</Button>
