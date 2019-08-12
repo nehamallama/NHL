@@ -16,6 +16,7 @@ import Header from "./components/Header";
 
 import Video from "./components/Video";
 import Main from "./components/Main";
+import Footer from "./components/Footer";
 
 
 
@@ -24,6 +25,7 @@ const App = () => {
       <BrowserRouter>
             <Header/>
                 <Main/>
+                <Footer/>
 
 
 
