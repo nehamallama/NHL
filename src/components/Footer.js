@@ -11,8 +11,8 @@ export default class Footer extends React.PureComponent {
         return (
 
             <footer>
-                <h3>DesignLabs by aldocaava</h3>
-                <p>Support <br/> DesignLabs@supportme.com</p>
+                <h3>NHL</h3>
+                <p>Support <br/>@LLama</p>
                 <ul>
                     <li><a href="#"><i className="fab fa-facebook-f"></i></a></li>
                     <li><a href="#"><i className="fab fa-twitter"></i></a></li>

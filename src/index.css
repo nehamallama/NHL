@@ -240,7 +240,7 @@ main section div p {
 div.services {
   display: grid;
   height: auto;
-  grid-template-columns: repeat(3,1fr);
+  grid-template-columns: repeat(4,1fr);
   padding: 10px;
 
 }

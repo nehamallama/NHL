@@ -17,6 +17,7 @@ import Header from "./components/Header";
 import Video from "./components/Video";
 import Main from "./components/Main";
 import Footer from "./components/Footer";
+import RecentGameList from "./components/RecentGameList";
 
 
 
