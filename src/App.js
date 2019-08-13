@@ -38,4 +38,4 @@ const App = () => {
 export default App;
 
 //TODO
-// Put caro in jumbrotron container
+// Put each conferences teams and w l pts into services component
