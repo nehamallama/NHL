@@ -11,34 +11,48 @@ import Video from "./Video";
 
 export default class Main extends Component {
     state = {
-        latest: ""
+        latest: "",
+        division : {
+            Metropolitan: "",
+            Central: "",
+            Pacific: "",
+            Atlantic: ""
+        },
+        team: ""
     }
 
-    async componentDidMount() {
 
+    async componentDidMount() {
         const url = ('https://statsapi.web.nhl.com/api/v1/standings');
         const response = await (fetch(url));
         const data = await response.json();
-        const here = await data.records;
-        console.log(here);
+
+        // const data2 = data.records[0].division.name;
+        // // console.log(data2);
+        // this.setState({division: {...this.state.division, metro: data2}})
+
+        for (var i=0; i<4;i++){
+            const data3 = data.records[i].division.name; //records store divs,confs,standings,etc,.division key.name of division
+            console.log(data3)
+            this.setState({division: {...this.state.division, [data3]: data3}})
 
 
-        this.setState({latest: here})
+        }
+
+
+
+
+
 
     }
 
-
-
     render() {
-
-
-
-        return (
+            return (
             <main>
 
 
                 <section className="intro">
-                    <h2 > about </h2>
+                    <h2 > about  </h2>
                     <div>
 
                     </div>
@@ -54,7 +68,7 @@ export default class Main extends Component {
 
                         <div className="service-one">
                             <p className="service-icon"><i className="far fa-calendar-alt"></i></p>
-                            <p className="service-title">Planning</p>
+                            <p className="service-title"> {this.state.division.Metropolitan}</p>
 
                                 <Table striped bordered hover>
                                     <thead>
@@ -113,19 +127,19 @@ export default class Main extends Component {
                         </div>
                         <div className="service-two">
                             <p className="service-icon"><i className="fas fa-crop"></i></p>
-                            <p className="service-title">Design</p>
+                            <p className="service-title">{this.state.division.Pacific}</p>
                             <p>Nulla eu metus faucibus, vehicula tortor quis, venenatis odio. Nullam purus mauris, feugiat in odio vitae, posuere volutpat libero. Sed et convallis libero.</p>
 
                         </div>
                         <div className="service-three">
                             <p className="service-icon"><i className="fas fa-code"></i></p>
-                            <p className="service-title">Development</p>
+                            <p className="service-title">{this.state.division.Central}</p>
                             <p>Ut ornare vitae enim a rhoncus. Nullam aliquet tristique scelerisque. Sed volutpat dictum risus ac laoreet. Suspendisse id lorem in enim sollicitudin varius.</p>
 
                         </div>
                         <div className="service-three">
                             <p className="service-icon"><i className="fas fa-code"></i></p>
-                            <p className="service-title">Development</p>
+                            <p className="service-title">{this.state.division.Atlantic}t</p>
                             <p>Ut ornare vitae enim a rhoncus. Nullam aliquet tristique scelerisque. Sed volutpat dictum risus ac laoreet. Suspendisse id lorem in enim sollicitudin varius.</p>
 
                         </div>

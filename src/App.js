@@ -39,3 +39,4 @@ export default App;
 
 //TODO
 // Put each conferences teams and w l pts into services component
+// make table with conferences sortable by team abc, w, l, or pts
