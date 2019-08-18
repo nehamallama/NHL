@@ -18,34 +18,43 @@ export default class Main extends Component {
             Pacific: "",
             Atlantic: ""
         },
-        team: ""
+        divRank: {
+            one:"",
+            two:"",
+            three:"",
+            four:"",
+            five:"",
+            six:"",
+            seven:"",
+            eight:"",
+        }
+
     }
 
 
     async componentDidMount() {
+        //get division names
         const url = ('https://statsapi.web.nhl.com/api/v1/standings');
         const response = await (fetch(url));
         const data = await response.json();
-
-        // const data2 = data.records[0].division.name;
-        // // console.log(data2);
-        // this.setState({division: {...this.state.division, metro: data2}})
-
-        for (var i=0; i<4;i++){
+        for (var i = 0; i < 4; i++) {
             const data3 = data.records[i].division.name; //records store divs,confs,standings,etc,.division key.name of division
-            console.log(data3)
             this.setState({division: {...this.state.division, [data3]: data3}})
-
-
         }
+        const url2 = ('https://statsapi.web.nhl.com/api/v1/standings');
+        const response2 = await (fetch(url2));
+        const data2 = await response2.json();
 
+        data2.records.map(function(element){
+                element.teamRecords.map(function(element2){
+                // console.log(element2.divisionRank)
+                console.log(element2.team.name );
 
-
-
+            });
+        });
 
 
     }
-
     render() {
             return (
             <main>
@@ -53,9 +62,7 @@ export default class Main extends Component {
 
                 <section className="intro">
                     <h2 > about  </h2>
-                    <div>
 
-                    </div>
                     <div>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque vel gravida nisi. Vestibulum ac consequat lorem. In in mi massa. Donec ut tellus sit amet sem ornare fermentum at et nunc. Pellentesque ac elementum metus. Praesent non venenatis lacus. In sagittis urna in nulla sagittis mattis.</p>
                     </div>
@@ -73,7 +80,7 @@ export default class Main extends Component {
                                 <Table striped bordered hover>
                                     <thead>
                                     <tr>
-                                        <th>#</th>
+                                        <th>{this.state.divRank["6 "]}</th>
                                         <th>First Name</th>
                                         <th>Last Name</th>
                                         <th>Username</th>
