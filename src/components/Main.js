@@ -10,26 +10,54 @@ import Video from "./Video";
 
 
 export default class Main extends Component {
-    state = {
-        latest: "",
-        division : {
-            Metropolitan: "",
-            Central: "",
-            Pacific: "",
-            Atlantic: ""
-        },
-        divRank: {
-            one:"",
-            two:"",
-            three:"",
-            four:"",
-            five:"",
-            six:"",
-            seven:"",
-            eight:"",
+    constructor(props){
+        super(props)
+        this.state = {
+            latest: "",
+            division : {
+                Metropolitan: "",
+                Central: "",
+                Pacific: "",
+                Atlantic: ""
+            },
+            divRank: {
+
+                0:"",
+                1:"",
+                2:"",
+                3:"",
+                4:"",
+                5:"",
+                6:"",
+                7:"",
+            },
+            teamRank: ""
         }
 
+
     }
+
+    // state = {
+    //     latest: "",
+    //     division : {
+    //         Metropolitan: "",
+    //         Central: "",
+    //         Pacific: "",
+    //         Atlantic: ""
+    //     },
+    //     divRank: {
+    //
+    //         0:"",
+    //         1:"",
+    //         2:"",
+    //         3:"",
+    //         4:"",
+    //         5:"",
+    //         6:"",
+    //         7:"",
+    //     },
+    //     teamRank: ""
+    // }
 
 
     async componentDidMount() {
@@ -45,12 +73,16 @@ export default class Main extends Component {
         const response2 = await (fetch(url2));
         const data2 = await response2.json();
 
-        data2.records.map(function(element){
-                element.teamRecords.map(function(element2){
-                // console.log(element2.divisionRank)
-                console.log(element2.team.name );
+        data2.records.map(async function(element){
+                element.teamRecords.map(function(element2,index){
+                    const teamNames = element2.team.name;
+                    const rankAndTeam = teamNames + index;
+                    console.log(rankAndTeam)
+                    // this.setState({teamRank: rankAndTeam})
+
 
             });
+
         });
 
 
@@ -80,7 +112,7 @@ export default class Main extends Component {
                                 <Table striped bordered hover>
                                     <thead>
                                     <tr>
-                                        <th>{this.state.divRank["6 "]}</th>
+                                        <th>{this.state.teamRank}</th>
                                         <th>First Name</th>
                                         <th>Last Name</th>
                                         <th>Username</th>
