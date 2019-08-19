@@ -20,46 +20,10 @@ export default class Main extends Component {
                 Pacific: "",
                 Atlantic: ""
             },
-            divRank: {
+            teamRank: [],
 
-                0:"",
-                1:"",
-                2:"",
-                3:"",
-                4:"",
-                5:"",
-                6:"",
-                7:"",
-            },
-            teamRank: ""
-        }
-
-
+            }
     }
-
-    // state = {
-    //     latest: "",
-    //     division : {
-    //         Metropolitan: "",
-    //         Central: "",
-    //         Pacific: "",
-    //         Atlantic: ""
-    //     },
-    //     divRank: {
-    //
-    //         0:"",
-    //         1:"",
-    //         2:"",
-    //         3:"",
-    //         4:"",
-    //         5:"",
-    //         6:"",
-    //         7:"",
-    //     },
-    //     teamRank: ""
-    // }
-
-
     async componentDidMount() {
         //get division names
         const url = ('https://statsapi.web.nhl.com/api/v1/standings');
@@ -68,24 +32,28 @@ export default class Main extends Component {
         for (var i = 0; i < 4; i++) {
             const data3 = data.records[i].division.name; //records store divs,confs,standings,etc,.division key.name of division
             this.setState({division: {...this.state.division, [data3]: data3}})
+
         }
         const url2 = ('https://statsapi.web.nhl.com/api/v1/standings');
         const response2 = await (fetch(url2));
         const data2 = await response2.json();
-
-        data2.records.map(async function(element){
-                element.teamRecords.map(function(element2,index){
-                    const teamNames = element2.team.name;
-                    const rankAndTeam = teamNames + index;
-                    console.log(rankAndTeam)
-                    // this.setState({teamRank: rankAndTeam})
-
-
+        // data2.records.map((element)=>{
+        //         element.teamRecords.map((element2,index) => {
+        //             const teamNames = element2.team.name;
+        //             const rankAndTeam = (teamNames + index);
+        //
+        //
+        //             const rank2 = rankAndTeam.split(/\[[0-9]+\]/)
+        let teamRank = [];
+        data2.records.map((element)=>{
+            element.teamRecords.map((element2,index) => {
+                const teamNames = element2.team.name;
+                const rankAndTeam = teamNames + index;
+                console.log(rankAndTeam);
+                teamRank.push(teamNames)
             });
-
-        });
-
-
+        })
+        this.setState({teamRank}, ()=>console.log(this.state.teamRank))
     }
     render() {
             return (
@@ -102,6 +70,13 @@ export default class Main extends Component {
 
                 <div>
                     <Caro/>
+                    <section className="intro">
+                        <h2 > Standings  </h2>
+
+                        <div>
+                            <p> The final standings for each division during the 2018-2019 NHL season</p>
+                        </div>
+                    </section>
                     <div className="services">
 
 
@@ -112,74 +87,242 @@ export default class Main extends Component {
                                 <Table striped bordered hover>
                                     <thead>
                                     <tr>
-                                        <th>{this.state.teamRank}</th>
+                                        <th></th>
                                         <th>First Name</th>
                                         <th>Last Name</th>
                                         <th>Username</th>
                                     </tr>
                                     </thead>
                                     <tbody>
+
                                     <tr>
                                         <td>1</td>
-                                        <td>Mark</td>
+                                        <td>{this.state.teamRank[0]}</td>
                                         <td>Otto</td>
                                         <td>@mdo</td>
                                     </tr>
                                     <tr>
                                         <td>2</td>
-                                        <td>Jacob</td>
+                                        <td>{this.state.teamRank[1]}</td>
+                                        <td>Thornton</td>
+                                        <td>@fat</td>
+                                    </tr><tr>
+                                        <td>3</td>
+                                        <td>{this.state.teamRank[2]}</td>
+                                        <td>Thornton</td>
+                                        <td>@fat</td>
+                                    </tr><tr>
+                                        <td>4</td>
+                                        <td>{this.state.teamRank[3]}</td>
+                                        <td>Thornton</td>
+                                        <td>@fat</td>
+                                    </tr><tr>
+                                        <td>5</td>
+                                        <td>{this.state.teamRank[4]}</td>
+                                        <td>Thornton</td>
+                                        <td>@fat</td>
+                                    </tr><tr>
+                                        <td>6</td>
+                                        <td>{this.state.teamRank[5]}</td>
+                                        <td>Thornton</td>
+                                        <td>@fat</td>
+                                    </tr><tr>
+                                        <td>7</td>
+                                        <td>{this.state.teamRank[6]}</td>
+                                        <td>Thornton</td>
+                                        <td>@fat</td>
+                                    </tr><tr>
+                                        <td>8</td>
+                                        <td>{this.state.teamRank[7]}</td>
                                         <td>Thornton</td>
                                         <td>@fat</td>
                                     </tr>
-                                    <tr>
-                                        <td>3</td>
-                                        <td colSpan="2">Larry the Bird</td>
-                                        <td>@twitter</td>
-                                    </tr><tr>
-                                        <td>3</td>
-                                        <td colSpan="2">Larry the Bird</td>
-                                        <td>@twitter</td>
-                                    </tr><tr>
-                                        <td>3</td>
-                                        <td colSpan="2">Larry the Bird</td>
-                                        <td>@twitter</td>
-                                    </tr><tr>
-                                        <td>3</td>
-                                        <td colSpan="2">Larry the Bird</td>
-                                        <td>@twitter</td>
-                                    </tr><tr>
-                                        <td>3</td>
-                                        <td colSpan="2">Larry the Bird</td>
-                                        <td>@twitter</td>
-                                    </tr><tr>
-                                        <td>3</td>
-                                        <td colSpan="2">Larry the Bird</td>
-                                        <td>@twitter</td>
-                                    </tr><tr>
-                                        <td>3</td>
-                                        <td colSpan="2">Larry the Bird</td>
-                                        <td>@twitter</td>
-                                    </tr>
+
                                     </tbody>
                                 </Table>
 
-                        </div>
-                        <div className="service-two">
-                            <p className="service-icon"><i className="fas fa-crop"></i></p>
-                            <p className="service-title">{this.state.division.Pacific}</p>
-                            <p>Nulla eu metus faucibus, vehicula tortor quis, venenatis odio. Nullam purus mauris, feugiat in odio vitae, posuere volutpat libero. Sed et convallis libero.</p>
+                        </div><div className="service-one">
+                            <p className="service-icon"><i className="far fa-calendar-alt"></i></p>
+                            <p className="service-title"> {this.state.division.Atlantic}</p>
 
-                        </div>
-                        <div className="service-three">
-                            <p className="service-icon"><i className="fas fa-code"></i></p>
-                            <p className="service-title">{this.state.division.Central}</p>
-                            <p>Ut ornare vitae enim a rhoncus. Nullam aliquet tristique scelerisque. Sed volutpat dictum risus ac laoreet. Suspendisse id lorem in enim sollicitudin varius.</p>
+                                <Table striped bordered hover>
+                                    <thead>
+                                    <tr>
+                                        <th></th>
+                                        <th>First Name</th>
+                                        <th>Last Name</th>
+                                        <th>Username</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
 
-                        </div>
-                        <div className="service-three">
-                            <p className="service-icon"><i className="fas fa-code"></i></p>
-                            <p className="service-title">{this.state.division.Atlantic}t</p>
-                            <p>Ut ornare vitae enim a rhoncus. Nullam aliquet tristique scelerisque. Sed volutpat dictum risus ac laoreet. Suspendisse id lorem in enim sollicitudin varius.</p>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>{this.state.teamRank[8]}</td>
+                                        <td>Otto</td>
+                                        <td>@mdo</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2</td>
+                                        <td>{this.state.teamRank[9]}</td>
+                                        <td>Thornton</td>
+                                        <td>@fat</td>
+                                    </tr><tr>
+                                        <td>3</td>
+                                        <td>{this.state.teamRank[10]}</td>
+                                        <td>Thornton</td>
+                                        <td>@fat</td>
+                                    </tr><tr>
+                                        <td>4</td>
+                                        <td>{this.state.teamRank[11]}</td>
+                                        <td>Thornton</td>
+                                        <td>@fat</td>
+                                    </tr><tr>
+                                        <td>5</td>
+                                        <td>{this.state.teamRank[12]}</td>
+                                        <td>Thornton</td>
+                                        <td>@fat</td>
+                                    </tr><tr>
+                                        <td>6</td>
+                                        <td>{this.state.teamRank[13]}</td>
+                                        <td>Thornton</td>
+                                        <td>@fat</td>
+                                    </tr><tr>
+                                        <td>7</td>
+                                        <td>{this.state.teamRank[14]}</td>
+                                        <td>Thornton</td>
+                                        <td>@fat</td>
+                                    </tr><tr>
+                                        <td>8</td>
+                                        <td>{this.state.teamRank[15]}</td>
+                                        <td>Thornton</td>
+                                        <td>@fat</td>
+                                    </tr>
+
+                                    </tbody>
+                                </Table>
+
+                        </div><div className="service-one">
+                            <p className="service-icon"><i className="far fa-calendar-alt"></i></p>
+                            <p className="service-title"> {this.state.division.Central}</p>
+
+                                <Table striped bordered hover>
+                                    <thead>
+                                    <tr>
+                                        <th></th>
+                                        <th>First Name</th>
+                                        <th>Last Name</th>
+                                        <th>Username</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+
+                                    <tr>
+                                        <td>1</td>
+                                        <td>{this.state.teamRank[16]}</td>
+                                        <td>Otto</td>
+                                        <td>@mdo</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2</td>
+                                        <td>{this.state.teamRank[17]}</td>
+                                        <td>Thornton</td>
+                                        <td>@fat</td>
+                                    </tr><tr>
+                                        <td>3</td>
+                                        <td>{this.state.teamRank[18]}</td>
+                                        <td>Thornton</td>
+                                        <td>@fat</td>
+                                    </tr><tr>
+                                        <td>4</td>
+                                        <td>{this.state.teamRank[19]}</td>
+                                        <td>Thornton</td>
+                                        <td>@fat</td>
+                                    </tr><tr>
+                                        <td>5</td>
+                                        <td>{this.state.teamRank[20]}</td>
+                                        <td>Thornton</td>
+                                        <td>@fat</td>
+                                    </tr><tr>
+                                        <td>6</td>
+                                        <td>{this.state.teamRank[21]}</td>
+                                        <td>Thornton</td>
+                                        <td>@fat</td>
+                                    </tr><tr>
+                                        <td>7</td>
+                                        <td>{this.state.teamRank[22]}</td>
+                                        <td>Thornton</td>
+                                        <td>@fat</td>
+                                    </tr><tr>
+                                        <td>8</td>
+                                        <td>{this.state.teamRank[23]}</td>
+                                        <td>Thornton</td>
+                                        <td>@fat</td>
+                                    </tr>
+
+                                    </tbody>
+                                </Table>
+
+                        </div><div className="service-one">
+                            <p className="service-icon"><i className="far fa-calendar-alt"></i></p>
+                            <p className="service-title"> {this.state.division.Pacific}</p>
+
+                                <Table striped bordered hover>
+                                    <thead>
+                                    <tr>
+                                        <th></th>
+                                        <th>First Name</th>
+                                        <th>Last Name</th>
+                                        <th>Username</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+
+                                    <tr>
+                                        <td>1</td>
+                                        <td>{this.state.teamRank[24]}</td>
+                                        <td>Otto</td>
+                                        <td>@mdo</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2</td>
+                                        <td>{this.state.teamRank[25]}</td>
+                                        <td>Thornton</td>
+                                        <td>@fat</td>
+                                    </tr><tr>
+                                        <td>3</td>
+                                        <td>{this.state.teamRank[26]}</td>
+                                        <td>Thornton</td>
+                                        <td>@fat</td>
+                                    </tr><tr>
+                                        <td>4</td>
+                                        <td>{this.state.teamRank[27]}</td>
+                                        <td>Thornton</td>
+                                        <td>@fat</td>
+                                    </tr><tr>
+                                        <td>5</td>
+                                        <td>{this.state.teamRank[28]}</td>
+                                        <td>Thornton</td>
+                                        <td>@fat</td>
+                                    </tr><tr>
+                                        <td>6</td>
+                                        <td>{this.state.teamRank[29]}</td>
+                                        <td>Thornton</td>
+                                        <td>@fat</td>
+                                    </tr><tr>
+                                        <td>7</td>
+                                        <td>{this.state.teamRank[30]}</td>
+                                        <td>Thornton</td>
+                                        <td>@fat</td>
+                                    </tr><tr>
+                                        <td>8</td>
+                                        <td>{this.state.teamRank[31]}</td>
+                                        <td>Thornton</td>
+                                        <td>@fat</td>
+                                    </tr>
+
+                                    </tbody>
+                                </Table>
 
                         </div>
                     </div>
