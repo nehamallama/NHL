@@ -314,11 +314,6 @@ export default class Main extends Component {
                                         <td>{this.state.teamRank[30]}</td>
                                         <td>Thornton</td>
                                         <td>@fat</td>
-                                    </tr><tr>
-                                        <td>8</td>
-                                        <td>{this.state.teamRank[31]}</td>
-                                        <td>Thornton</td>
-                                        <td>@fat</td>
                                     </tr>
 
                                     </tbody>
