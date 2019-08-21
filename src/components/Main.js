@@ -22,7 +22,9 @@ export default class Main extends Component {
             countWinsCentral: 1,
             countWinsMetro: -17,
             countLossesAtlantic: -9,
-            countLossesCentral:1
+            countLossesCentral:1,
+            countLossesMetro:-17,
+            countLossesPacific: 6,
 
 
         }
@@ -106,12 +108,15 @@ export default class Main extends Component {
 
                                         {this.state.teamRank.slice(0,8).map(( listValue, index ) => {
                                             this.state.countWinsMetro = this.state.countWinsMetro + 1;
+                                            this.state.countLossesMetro =this.state.countLossesMetro + 1;
 
                                             return (
                                                 <tr key={index}>
                                                 <td>{index+1}</td>
                                                 <NavLink>{listValue }</NavLink>
                                                 <td>{this.state.timmy[this.state.countWinsMetro]}</td>
+                                                <td>{this.state.losses[this.state.countLossesMetro]}</td>
+
 
                                                 </tr>
                                             );
@@ -194,11 +199,13 @@ export default class Main extends Component {
                             <tbody>
                             {this.state.teamRank.slice(23,).map(( listValue, index ) => {
                                 this.state.countWinsPacific = this.state.countWinsPacific + 1;
+                                this.state.countLossesPacific = this.state.countLossesPacific + 1;
                                 return (
                                     <tr key={index}>
                                         <td>{index+1}</td>
                                         <NavLink>{listValue}</NavLink>
                                         <td>{this.state.timmy[this.state.countWinsPacific] }</td>
+                                        <td>{this.state.losses[this.state.countLossesPacific] }</td>
                                     </tr>
                                 );
                             })}
