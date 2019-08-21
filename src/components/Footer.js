@@ -1,24 +1,26 @@
 import React, {Component} from 'react';
 import {
-    Carousel, CarouselItem, Container, Jumbotron, Card, Button
+    Carousel, CarouselItem, Container, Jumbotron, Card, Button, Nav,
 
 
 } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.css';
-import NavLink from "react-bootstrap/NavLink";
+import { SocialIcon } from 'react-social-icons';
+
 export default class Footer extends React.PureComponent {
     render() {
 
         return (
 
             <footer>
-                <h3>NHL</h3>
-                <p>Support <br/>@LLama</p>
-                <ul>
-                    <li><NavLink>className="fab fa-facebook-f"></NavLink></li>
-                    <li><a href="#"><i className="fab fa-twitter"></i></a></li>
-                    <li><a href="#"><i className="fab fa-instagram"></i></a></li>
-                </ul>
+                <h1>Follow the NHL on Social Media</h1>
+                <SocialIcon url="https://twitter.com/NHL"/>
+                <SocialIcon url="https://www.instagram.com/nhl/?hl=en"/>
+                <SocialIcon url="https://www.facebook.com/NHL/"/>
+                <h4>A Website by @nehamallama</h4>
+                <SocialIcon url="https://twitter.com/nehamallama"/>
+
+
             </footer>
 
         );

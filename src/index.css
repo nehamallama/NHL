@@ -284,16 +284,19 @@ div.services {
 
 /*footer*/
 footer {
-  /*background: rgb(0, 99, 248);*/
   background: url('img/icebackground.jpg');
   color: black;
   padding: 20px;
   margin-top: 80px;
-  display: grid;
   grid-template-columns:1fr 1fr 1fr;
   align-items: center;
   text-align: center;
 
+  display: inline-grid;
+
+}
+footer h4{
+  padding-top: 50px;
 }
 
 /*footer ul {*/
