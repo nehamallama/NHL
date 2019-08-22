@@ -10,10 +10,9 @@ export default class Nav extends React.PureComponent {
 
     render() {
         return (
-
                 <Navbar className="bg-light justify-content-between">
                     <Form inline>
-                        <FormControl type="text" placeholder="Search" className=" mr-sm-2" />
+                        <FormControl type="text" placeholder="Search Team" className=" mr-sm-2" />
                         <Button type="submit">Submit</Button>
                     </Form>
                     <Form >
@@ -25,10 +24,6 @@ export default class Nav extends React.PureComponent {
                         <Button type="submit">Login</Button>
                     </Form>
                 </Navbar>
-
-
-
-
         );
     }
 

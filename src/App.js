@@ -38,5 +38,11 @@ const App = () => {
 export default App;
 
 //TODO
-// Put each conferences teams and w l pts into services component
-// make table with conferences sortable by team abc, w, l, or pts
+// Put each conferences teams and w l pts into services component DONE
+// make table with conferences sortable by team abc, w, l, or pts DONE WOW THAT WAS HARD
+// fix tree!! -> break up main component into multiple components?
+// when we click on a team from the standing or search a team by name, our results pull up the correct page
+// draw up design for each teams page... Store img?
+// replace contact button with login button???
+// replace log in button with random team button????
+// random players in carousel??

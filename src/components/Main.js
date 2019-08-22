@@ -4,6 +4,7 @@ import {
     Table
 } from 'react-bootstrap';
 import NavLink from "react-bootstrap/NavLink";
+
 export default class Main extends Component {
     constructor(props) {
         super(props);
@@ -25,8 +26,6 @@ export default class Main extends Component {
             countLossesCentral:1,
             countLossesMetro:-17,
             countLossesPacific: 6,
-
-
         }
     }
     async componentDidMount() {
@@ -84,7 +83,7 @@ export default class Main extends Component {
                 <section className="intro">
                     <h2 > about  </h2>
                     <div>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque vel gravida nisi. Vestibulum ac consequat lorem. In in mi massa. Donec ut tellus sit amet sem ornare fermentum at et nunc. Pellentesque ac elementum metus. Praesent non venenatis lacus. In sagittis urna in nulla sagittis mattis.</p>
+                        <p>The National Hockey League (NHL; French: Ligue nationale de hockey—LNH) is a professional ice hockey league in North America, currently comprising 31 teams: 24 in the United States and 7 in Canada. The NHL is considered to be the premier professional ice hockey league in the world, and one of the major professional sports leagues in the United States and Canada. The Stanley Cup, the oldest professional sports trophy in North America, is awarded annually to the league playoff champion at the end of each season.</p>
                     </div>
                 </section>
                     <Caro/>
@@ -102,27 +101,21 @@ export default class Main extends Component {
                                 </tr>
                                 </thead>
                                     <tbody>
-
                                         {/*for each listValue in the slice, add a corresponding wins# from the win state*/}
                                         {/*create a global state value and set it to */}
-
                                         {this.state.teamRank.slice(0,8).map(( listValue, index ) => {
                                             this.state.countWinsMetro = this.state.countWinsMetro + 1;
                                             this.state.countLossesMetro =this.state.countLossesMetro + 1;
-
                                             return (
                                                 <tr key={index}>
                                                 <td>{index+1}</td>
                                                 <NavLink>{listValue }</NavLink>
                                                 <td>{this.state.timmy[this.state.countWinsMetro]}</td>
                                                 <td>{this.state.losses[this.state.countLossesMetro]}</td>
-
-
                                                 </tr>
                                             );
                                     })
                                         }
-
                                     </tbody>
                                 </Table>
                         </div><div className="service-one">
