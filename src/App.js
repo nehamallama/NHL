@@ -18,18 +18,17 @@ import Video from "./components/Video";
 import Main from "./components/Main";
 import Footer from "./components/Footer";
 import RecentGameList from "./components/RecentGameList";
+import NotFound from "./components/NotFound";
 
 
 
 const App = () => {
   return (
       <BrowserRouter>
-            <Header/>
-                <Main/>
-                <Footer/>
-
-
-
+              <Switch>
+                  <Route exact path="/" component={Main} />
+                  <Route  component={NotFound} />
+              </Switch>
       </BrowserRouter>
 
   );
@@ -42,7 +41,12 @@ export default App;
 // make table with conferences sortable by team abc, w, l, or pts DONE WOW THAT WAS HARD
 // fix tree!! -> break up main component into multiple components?
 // when we click on a team from the standing or search a team by name, our results pull up the correct page
+// => team page => pulls team records data from api and displays it
+// => how to do the searching
 // draw up design for each teams page... Store img?
 // replace contact button with login button???
 // replace log in button with random team button????
 // random players in carousel??
+// autofill for team names
+// team not found page
+// auth levels cuz youll need to for yoga ladies
