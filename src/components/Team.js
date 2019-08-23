@@ -1,11 +1,29 @@
 import React, { Component } from 'react';
 import { Grid, Cell } from 'react-mdl';
+import Header from "./Header";
+import Nav from "./Nav";
+import Footer from "./Footer";
 
 
 export default class Landing extends Component{
+    constructor(props) {
+        super(props);
+        this.state = {}
+    }
+
+    async componentDidMount() {
+        const url = ('https://statsapi.web.nhl.com/api/v1/teams');
+        const response = await (fetch(url));
+        const data = await response.json();
+        console.log(this.props.match)
+    }
+
+
     render() {
         return(
+
             <div style={{width: '100%', margin: 'auto'}}>
+                    <Header/>
                 <Grid className="landing-grid">
                     <Cell col={12}>
                         <img
@@ -47,6 +65,7 @@ export default class Landing extends Component{
                         </div>
                     </Cell>
                 </Grid>
+                <Footer/>
             </div>
         )
     }

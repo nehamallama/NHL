@@ -14,7 +14,7 @@ export default class Nav extends React.PureComponent {
                     <Form inline>
                         <FormControl type="text" placeholder="Search Team" className=" mr-sm-2" />
                         <Button type="submit">Submit</Button>
-                    </Form>
+                    </Form >
                     <Form >
                         NHL
 
