@@ -13,7 +13,7 @@ export default class Nav extends React.PureComponent {
                 <Navbar className="bg-light justify-content-between">
                     <Form inline>
                         <FormControl type="text" placeholder="Search Team" className=" mr-sm-2" />
-                        <Button type="submit">Submit</Button>
+                        <Button  type="submit">Submit</Button>
                     </Form >
                     <Form >
                         NHL

@@ -8,14 +8,17 @@ import Footer from "./Footer";
 export default class Landing extends Component{
     constructor(props) {
         super(props);
-        this.state = {}
+        this.state = {
+
+        }
     }
 
     async componentDidMount() {
         const url = ('https://statsapi.web.nhl.com/api/v1/teams');
         const response = await (fetch(url));
         const data = await response.json();
-        console.log(this.props.match)
+        // console.log(this.props.match.params.team)
+
     }
 
 

@@ -3,10 +3,11 @@ import Caro from "./Caro";
 import {
     Table
 } from 'react-bootstrap';
-import NavLink from "react-bootstrap/NavLink";
+import {NavLink} from "react-router-dom";
 import Header from "./Header";
 import Footer from "./Footer";
-
+import { render } from "react-dom";
+import { BrowserRouter, Route } from "react-router-dom";
 export default class Main extends Component {
 
 
@@ -112,10 +113,11 @@ export default class Main extends Component {
                                             {this.state.teamRank.slice(0,8).map(( listValue, index ) => {
                                                 this.state.countWinsMetro = this.state.countWinsMetro + 1;
                                                 this.state.countLossesMetro =this.state.countLossesMetro + 1;
+                                                const listValueUrl = listValue.split(" ").join('');
                                                 return (
                                                     <tr key={index}>
                                                     <td>{index+1}</td>
-                                                    <NavLink>{listValue }</NavLink>
+                                                    <NavLink to={`teams/${listValueUrl}`}>{listValue } </NavLink>
                                                     <td>{this.state.timmy[this.state.countWinsMetro]}</td>
                                                     <td>{this.state.losses[this.state.countLossesMetro]}</td>
                                                     </tr>
@@ -142,10 +144,12 @@ export default class Main extends Component {
                                         {this.state.teamRank.slice(8,16).map(( listValue, index ) => {
                                             this.state.countWinsAtlantic = this.state.countWinsAtlantic + 1;
                                             this.state.countLossesAtlantic = this.state.countLossesAtlantic + 1;
+                                            const listValueUrl = listValue.split(" ").join('');
                                             return (
                                                 <tr key={index}>
                                                     <td>{index+1}</td>
-                                                    <NavLink>{listValue }</NavLink>
+                                                    <NavLink to={`teams/${listValueUrl}`}>{listValue } </NavLink>
+
                                                     <td>{this.state.timmy[this.state.countWinsAtlantic] }</td>
                                                     <td>{this.state.losses[this.state.countLossesAtlantic]}</td>
                                                 </tr>
@@ -170,10 +174,11 @@ export default class Main extends Component {
                                 {this.state.teamRank.slice(16,23).map(( listValue, index ) => {
                                     this.state.countWinsCentral= this.state.countWinsCentral + 1;
                                     this.state.countLossesCentral = this.state.countLossesCentral + 1;
+                                    const listValueUrl = listValue.split(" ").join('');
                                     return (
                                         <tr key={index}>
                                             <td>{index+1}</td>
-                                            <NavLink>{listValue}</NavLink>
+                                            <NavLink to={`teams/${listValueUrl}`}>{listValue } </NavLink>
                                             <td>{this.state.timmy[this.state.countWinsCentral] }</td>
                                             <td>{this.state.losses[this.state.countLossesCentral]}</td>
 
@@ -199,10 +204,11 @@ export default class Main extends Component {
                                 {this.state.teamRank.slice(23,).map(( listValue, index ) => {
                                     this.state.countWinsPacific = this.state.countWinsPacific + 1;
                                     this.state.countLossesPacific = this.state.countLossesPacific + 1;
+                                    const listValueUrl = listValue.split(" ").join('');
                                     return (
                                         <tr key={index}>
                                             <td>{index+1}</td>
-                                            <NavLink>{listValue}</NavLink>
+                                            <NavLink to={`teams/${listValueUrl}`}>{listValue } </NavLink>
                                             <td>{this.state.timmy[this.state.countWinsPacific] }</td>
                                             <td>{this.state.losses[this.state.countLossesPacific] }</td>
                                         </tr>
