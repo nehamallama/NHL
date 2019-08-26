@@ -74,9 +74,9 @@ export default class Main extends Component {
             });
 
         })
-        this.setState({teamRank}, ()=>console.log(this.state.teamRank));
-        this.setState({timmy}, ()=>console.log(this.state.timmy));
-        this.setState({losses}, ()=>console.log(this.state.losses));
+        this.setState({teamRank}, );
+        this.setState({timmy}, ); //()=>console.log(this.state.timmy)
+        this.setState({losses}, );
 
 
 
@@ -144,7 +144,7 @@ export default class Main extends Component {
                                         {this.state.teamRank.slice(8,16).map(( listValue, index ) => {
                                             this.state.countWinsAtlantic = this.state.countWinsAtlantic + 1;
                                             this.state.countLossesAtlantic = this.state.countLossesAtlantic + 1;
-                                            const listValueUrl = listValue.split(" ").join('');
+                                            const listValueUrl = listValue.split(" ").join(''); //get rid of spaces
                                             return (
                                                 <tr key={index}>
                                                     <td>{index+1}</td>

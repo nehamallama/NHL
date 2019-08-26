@@ -54,3 +54,5 @@ export default App;
 // team not found page
 // auth levels cuz youll need to for yoga ladies
 // add google maps for the location of the team like eliteprospects does
+// add nhl logo to navbar where it says nhl
+// access to click on each player via roster.person.id
