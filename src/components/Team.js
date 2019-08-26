@@ -80,13 +80,11 @@ export default class Landing extends Component{
         );
 
     }
-
-
     render() {
         return(
 
             <div style={{width: '100%', margin: 'auto'}}>
-                   <Nav/>
+           <Nav/>
                 <Grid className="landing-grid">
                     <Cell col={12}>
                         <img
@@ -101,8 +99,6 @@ export default class Landing extends Component{
                             <hr/>
 
                             <p>City: {this.state.locationName} | Venue: {this.state.venueName} | First Year Of Play: {this.state.firstYearOfPlay}</p>
-
-
                         </div>
 
                         <div className="services-team">
