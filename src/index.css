@@ -100,7 +100,7 @@ img {
 /*font-size: 3rem;*/
 /*}*/
 /*------------- HEADER -------------------*/
-navbar form{
+.bg-light justify-content-between{
   text-align: center;
   margin-left: 500px;
 }
@@ -255,7 +255,10 @@ div.services {
 
 
 }
+navbar div.logo {
+  text-align: center;
 
+}
 /*here*/
 .services div {
   text-align: center;
@@ -307,7 +310,6 @@ footer {
 }
 footer h4{
   padding-top: 80px;
-
 }
 /* contact page css */
 
@@ -440,7 +442,8 @@ landing-grid {
 div.services-team {
   display: grid;
   height: auto;
-  grid-template-columns: repeat(4,1fr);
+  grid-template-columns: repeat(1,1fr);
+
 
 
 }
@@ -458,11 +461,12 @@ div.services-team {
   font-size: 3.1rem;
   padding: 0;
   margin: 0;
+  text-align: center;
 }
 
 .services-team p:last-of-type{
   padding: 0px 90px 20px 90px;
-  text-align: left;
+  text-align: center;
 }
 
 

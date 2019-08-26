@@ -16,35 +16,40 @@ export default class Landing extends Component{
             locationName: "",
             venueName: "",
             confRank:"",
+            roster: []
         }
     }
 
-    async getTeamStates(data) {
+    getTeamStates(data) {
         // if the team name key is in the data.teams object
-        console.log(data)
-        // var keys = Object.keys(data.teams)
-        // console.log(keys)
+        //
         const teamNamewSpaces = this.addSpacesToTeamName();
 
         data.teams.map((element) =>{
-            console.log(element)
             if (element.name === teamNamewSpaces){
-
+                // this.setState({roster: element.roster})
+                // // element.roster.roster.map(( element2 ) => {
+                // //     this.setState({roster:})
+                // // });
               this.setState(
                 {
                     locationName: element.locationName,
                     venueName: element.venue.name,
-                        firstYearOfPlay: element.firstYearOfPlay,
-                        }, ()=>console.log(this.state.firstYearOfPlay)
+                    firstYearOfPlay: element.firstYearOfPlay,
+                    roster: element.roster.roster
+                        },
+                  // ()=>{
+                  //   this.state.roster.map((element)=>{
+                  //       console.log(element)
+                  //     })
+                  // }
               );
             }
         });
-
-
-
     }
 
-    async componentDidMount() {
+
+    async componentWillMount() {
         const url = ('https://statsapi.web.nhl.com/api/v1/teams?expand=team.roster');
         const response = await (fetch(url));
         const data = await response.json();
@@ -57,6 +62,16 @@ export default class Landing extends Component{
         return teamNameForTeamHeader
 
     }
+
+    getTeamRoster() {
+        this.state.roster.map((player) => {
+            console.log(player.jerseyNumber)
+            return(
+                <td>{player.jerseyNumber}</td>
+            );
+        })
+    }
+
     addSpacesToTeamName2() {
         const teamName = this.props.match.params.team;
         const teamNameForTeamHeader = teamName.replace(/([a-z])([A-Z])/g, '$1 $2');
@@ -71,7 +86,7 @@ export default class Landing extends Component{
         return(
 
             <div style={{width: '100%', margin: 'auto'}}>
-                    <Header/>
+                   <Nav/>
                 <Grid className="landing-grid">
                     <Cell col={12}>
                         <img
@@ -93,30 +108,32 @@ export default class Landing extends Component{
                         <div className="services-team">
                             <div className="service-one">
                                 <p className="service-icon"><i className="far fa-calendar-alt"></i></p>
-                                <p className="service-title"> team</p>
+                                <p className="service-title"> Roster: {this.addSpacesToTeamName()} </p>
                                 <Table striped bordered hover>
                                     <thead>
                                     <tr>
-                                        <th>Rank</th>
-                                        <th>Team</th>
-                                        <th>Wins</th>
-                                        <th>Losses</th>
+                                        <th>Player</th>
+                                        <th>Jersey Number</th>
+                                        <th>Position</th>
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    {/*for each listValue in the slice, add a corresponding wins# from the win state*/}
-                                    {/*create a global state value and set it to */}
-
-                                        return (
-                                            <tr >
-                                                <td></td>
-                                                <NavLink>hi </NavLink>
-                                                <td>hello</td>
-
+                                            {/*state will hold an array of the roster.... index into the roster where each player
+                                            printed from map will be a single player from the selected teams  roster*/}
+                                            {this.state.roster.map((player,index) => {
+                                                console.log(player)
+                                        return(
+                                            //make a row for each player.person.fullName from the player array since were still inside map func
+                                            <tr> {player.person.fullName}
+                                            {/*add table data to each column*/}
+                                            <td>{player.jerseyNumber}</td>
+                                                {/*col1^^^*/}
+                                            <td>{player.position.name}</td>
+                                                {/*col2 ^^^*/}
                                             </tr>
                                         );
-                                    })
-                                    }
+                                            })}
+
                                     </tbody>
                                 </Table>
                             </div>
