@@ -6,11 +6,7 @@ import {
 import {NavLink} from "react-router-dom";
 import Header from "./Header";
 import Footer from "./Footer";
-import { render } from "react-dom";
-import { BrowserRouter, Route } from "react-router-dom";
 export default class Main extends Component {
-
-
     constructor(props) {
         super(props);
         this.state = {
@@ -51,40 +47,31 @@ export default class Main extends Component {
         let losses = [];
         data2.records.map((element)=>{
             element.teamRecords.map((element2,index) => {
-
                 const teamNames = element2.team.name;
                 const teamWins = element2.leagueRecord.wins;
                 const rankAndTeam = teamNames + index;
                 teamRank.push(teamNames);
                 timmy.push(teamWins);
-
-
             });
 
         })
         data2.records.map((element)=>{
             element.teamRecords.map((element2,index) => {
-
                 const teamNames = element2.team.name;
                 const teamLosses = element2.leagueRecord.losses;
                 const rankAndTeam = teamNames + index;
                 losses.push(teamLosses)
-
-
             });
 
         })
         this.setState({teamRank}, );
         this.setState({timmy}, ); //()=>console.log(this.state.timmy)
         this.setState({losses}, );
-
-
-
     }
     //we want a function that we can call that will return a table row for each item in the teamRank state array
     render() {
             return (
-
+                //NEED TO DRY THIS OUT BIG TIME
                 <main>
                     <Header/>
                     <section className="intro">

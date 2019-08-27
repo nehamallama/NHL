@@ -46,7 +46,7 @@ export default class Nav extends React.Component {
 
         return (
             <Navbar className="bg-light justify-content-between">
-                <Form onSubmit={this.submit}>
+                <Form inline onSubmit={this.submit}>
                     <FormControl inline type="text" placeholder="Search Team" className=" mr-sm-2" onChange={this.onSearchChange} />
                     <Button inline onClick={this.redirectIt}>Submit</Button>
                 </Form >

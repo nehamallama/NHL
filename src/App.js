@@ -8,17 +8,10 @@ import {
   Switch
 } from 'react-router-dom';
 //class imports
-import Nav from "./components/Nav";
 //bootstrap imports
 import 'bootstrap/dist/css/bootstrap.css';
-import Caro from "./components/Caro";
-import Jumbo from "./components/Jumbo";
-import Header from "./components/Header";
-
-import Video from "./components/Video";
 import Main from "./components/Main";
-import Footer from "./components/Footer";
-import RecentGameList from "./components/RecentGameList";
+
 import NotFound from "./components/NotFound";
 import Team from "./components/Team";
 
@@ -46,6 +39,7 @@ export default App;
 // when we click on a team from the standing or search a team by name, our results pull up the correct page DONE
 // => team page => pulls team records data from api and displays it DONE
 // => how to do the searching DONE
+// fix bug: if we enter localhost/teams/Dallas Stars 2222 the team name and roster will show dallas stars 222 DONE
 // draw up design for each teams page... Store img from mongo?
 // replace contact button with login button???
 // replace log in button with random team button????
@@ -58,5 +52,5 @@ export default App;
 // add nhl logo to navbar where it says nhl
 // access to click on each player via roster.person.id
 // add drop down with teams to navbar
-// fix bug: if we enter localhost/teams/Dallas Stars 2222 the team name and roster will show dallas stars 222
+// sign up for some email news bullshit
 
