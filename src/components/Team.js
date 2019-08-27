@@ -48,8 +48,8 @@ export default class Landing extends Component{
         });
     }
 
+    async componentDidMount() {
 
-    async componentWillMount() {
         const url = ('https://statsapi.web.nhl.com/api/v1/teams?expand=team.roster');
         const response = await (fetch(url));
         const data = await response.json();
@@ -82,7 +82,7 @@ export default class Landing extends Component{
     }
     render() {
         return(
-
+            //if we  have a change in nav and someone presses the button, do a new get with the new match params
             <div style={{width: '100%', margin: 'auto'}}>
            <Nav/>
                 <Grid className="landing-grid">

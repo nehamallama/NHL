@@ -8,6 +8,7 @@ import 'bootstrap/dist/css/bootstrap.css';
 import axios from "axios";
 import Header from "./Header"
 import { Redirect } from 'react-router-dom'
+import {NavLink} from "react-router-dom";
 
 export default class Nav extends React.Component {
 
@@ -35,6 +36,10 @@ export default class Nav extends React.Component {
         this.setState({isRedirected: true})
     }
 
+    shouldWe = () => {
+        if (this.state.isRedirected) return <Redirect to={`/teams/${this.state.searchText}`} />
+    }
+
     render() {
         // change the to prop to the next component
         if (this.state.isRedirected) return <Redirect to={`/teams/${this.state.searchText}`} />
@@ -42,10 +47,10 @@ export default class Nav extends React.Component {
         return (
             <Navbar className="bg-light justify-content-between">
                 <Form onSubmit={this.submit}>
-                    <FormControl type="text" placeholder="Search Team" className=" mr-sm-2" onChange={this.onSearchChange} />
+                    <FormControl inline type="text" placeholder="Search Team" className=" mr-sm-2" onChange={this.onSearchChange} />
                     <Button inline onClick={this.redirectIt}>Submit</Button>
                 </Form >
-                <div className='logo'>NHL</div>
+                <NavLink to={`/`} activeClassName="selected">NHL</NavLink>
                 <Button inline onClick={this.redirectIt}>Login</Button>
             </Navbar>
         );

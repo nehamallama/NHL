@@ -162,11 +162,8 @@ header div.head p {
   -moz-box-shadow: 0px 10px 54px -11px rgba(0,0,0,0.75);
   box-shadow: 0px 10px 54px -11px rgba(0,0,0,0.75);
 }
-/*Navbar*/
-.bg-light justify-content-between {
-  background: url("img/icebackground.jpg");
+Navlink {
   text-align: center;
-
 }
 
 /*------------- MAIN SECTION -------------------*/
