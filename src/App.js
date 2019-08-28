@@ -14,15 +14,18 @@ import Main from "./components/Main";
 
 import NotFound from "./components/NotFound";
 import Team from "./components/Team";
-
-
+import TeamImg from "./components/TeamImg"
 
 const App = () => {
+
+
+
   return (
       <BrowserRouter>
               <Switch>
                   <Route exact path="/" component={Main} />
                   <Route path="/teams/:team" component={Team} />
+                  <Route path="/test" component={TeamImg}/>
                   <Route  component={NotFound} />
               </Switch>
       </BrowserRouter>

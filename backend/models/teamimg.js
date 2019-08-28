@@ -2,12 +2,12 @@ const mongoose = require('mongoose');
 
 const Schema = mongoose.Schema;
 
-const TeamImgSchema = new Schema({
+const teamimgSchema = new Schema({
     img: { data: Buffer, contentType: String }
 }, {
     timestamps: true,
 });
 
-const TeamImg = mongoose.model('TeamImg', TeamImgSchema);
+const teamImg = mongoose.model('teamImg', teamimgSchema);
 
-module.exports = TeamImg;
+module.exports = teamImg;
