@@ -51,12 +51,14 @@ export default class Landing extends Component{
         });
     }
 
-    async componentDidMount() {
+    async componentWillMount() {
 
         const url = ('https://statsapi.web.nhl.com/api/v1/teams?expand=team.roster');
         const response = await (fetch(url));
         const data = await response.json();
         this.getTeamStates(data)
+        // console.log('test')
+        // console.log(this.state.teamsName)
     }
 
     addSpacesToTeamName() {
@@ -90,7 +92,7 @@ export default class Landing extends Component{
            <Nav />
                 <Grid className="landing-grid">
                     <Cell col={12}>
-                       <TeamImg data={this.state.teamsName}/>
+                       <TeamImg data={this.props.match.params.team}/>
                         <div className="banner-text">
                             <h1>{this.addSpacesToTeamName()}</h1>
                             <hr/>

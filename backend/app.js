@@ -20,7 +20,7 @@ db.once("open",()=>{
     console.log("db conn loaded")
     // var a = new teamImg;
     teamListwPictures.map((element) => {
-        console.log(element) //see what this prints, if it prints just one section of json we good so we can add reest to json like we did w this one
+        // console.log(element) //see what this prints, if it prints just one section of json we good so we can add reest to json like we did w this one
         var a = new teamImg;
         a.img.imgData = element.imgData;
         a.img.teamName = element.teamName;
