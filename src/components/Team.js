@@ -5,12 +5,14 @@ import Nav from "./Nav";
 import Footer from "./Footer";
 import {NavLink} from "react-router-dom";
 import {Table} from "react-bootstrap";
+import TeamImg from "./TeamImg"
 import {thisTypeAnnotation} from "@babel/types";
 
 export default class Landing extends Component{
     constructor(props) {
         super(props);
         this.state = {
+            teamsName: "",
             officialSiteUrl: "",
             firstYearOfPlay: "",
             locationName: "",
@@ -33,6 +35,7 @@ export default class Landing extends Component{
                 // // });
               this.setState(
                 {
+                    teamsName: element.name,
                     locationName: element.locationName,
                     venueName: element.venue.name,
                     firstYearOfPlay: element.firstYearOfPlay,
@@ -65,12 +68,12 @@ export default class Landing extends Component{
 
     getTeamRoster() {
         this.state.roster.map((player) => {
-            console.log(player.jerseyNumber)
             return(
                 <td>{player.jerseyNumber}</td>
             );
         })
     }
+
 
     addSpacesToTeamName2() {
         const teamName = this.props.match.params.team;
@@ -84,17 +87,16 @@ export default class Landing extends Component{
         return(
             //if we  have a change in nav and someone presses the button, do a new get with the new match params
             <div style={{width: '100%', margin: 'auto'}}>
-           <Nav/>
+           <Nav />
                 <Grid className="landing-grid">
                     <Cell col={12}>
-                        <img
-                            src="https://www.shareicon.net/download/2015/09/18/103157_man_512x512.png"
-                            alt="avatar"
-                            className="avatar-img"
-                        />
+                       <TeamImg data={this.state.teamsName}/>
+
 
                         <div className="banner-text">
+
                             <h1>{this.addSpacesToTeamName()}</h1>
+
 
                             <hr/>
 
@@ -117,7 +119,7 @@ export default class Landing extends Component{
                                             {/*state will hold an array of the roster.... index into the roster where each player
                                             printed from map will be a single player from the selected teams  roster*/}
                                             {this.state.roster.map((player,index) => {
-                                                console.log(player)
+                                                // console.log(player)
                                         return(
                                             //make a row for each player.person.fullName from the player array since were still inside map func
                                             <tr> {player.person.fullName}

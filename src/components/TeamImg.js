@@ -5,9 +5,11 @@ export default class TeamImg extends React.Component {
 
     constructor(props) {
         super(props);
+
         this.state = {
             img: ''
         }
+
     }
     arrayBufferToBase64( buffer ) {
         var binary = '';
@@ -18,39 +20,28 @@ export default class TeamImg extends React.Component {
         }
         return window.btoa( binary );
     }
-    // arrayBufferToBase64(buffer) {
-    //
-    //     var binary = '';
-    //     var bytes = [].slice.call(new Uint8Array(buffer));
-    //     bytes.forEach((b) => binary += String.fromCharCode(b));
-    //     return window.btoa(binary);
-    // };
+
 
     componentDidMount() {
+        console.log(this.props)
         axios.get('http://localhost:5000/test')
             .then(response => {
-                console.log(response.data.img.data.data)
-
+                console.log(response.data.img.imgData.data)//lol the dot notation to get to the actual image buffer data
                 var base64Flag = 'data:image/jpeg;base64,';
-                var imageStr = this.arrayBufferToBase64(response.data.img.data.data)
-
-                console.log(imageStr)
+                var imageStr = this.arrayBufferToBase64(response.data.img.imgData.data)
+                // console.log(imageStr)
                 this.setState({img: base64Flag + imageStr})
-
-
             })
             .catch((error) => {
                 console.log(error);
             })
-
     }
-
     render() {
-
         return (
             <img
                 src={this.state.img}
-                alt='Helpful alt text'/>
+                alt='Helpful alt text'
+                className="avatar-img"/>
         )
     }
 

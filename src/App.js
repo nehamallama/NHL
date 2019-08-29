@@ -17,9 +17,6 @@ import Team from "./components/Team";
 import TeamImg from "./components/TeamImg"
 
 const App = () => {
-
-
-
   return (
       <BrowserRouter>
               <Switch>
@@ -55,5 +52,6 @@ export default App;
 // add nhl logo to navbar where it says nhl
 // access to click on each player via roster.person.id
 // add drop down with teams to navbar
-// sign up for some email news bullshit
+// sign up for some email news
+// add shadow/some sort of styling to the team logo on teams page
 

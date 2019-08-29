@@ -50,7 +50,7 @@ export default class Nav extends React.Component {
                     <FormControl inline type="text" placeholder="Search Team" className=" mr-sm-2" onChange={this.onSearchChange} />
                     <Button inline onClick={this.redirectIt}>Submit</Button>
                 </Form >
-                <NavLink to={`/`} activeClassName="selected">NHL</NavLink>
+                <NavLink to={`/`} ClassName="selected">NHL</NavLink>
                 <Button inline onClick={this.redirectIt}>Login</Button>
             </Navbar>
         );

@@ -3,9 +3,11 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const teamimgSchema = new Schema({
-    img: { data: Buffer, contentType: String }
+
+    img:  { imgData: Buffer, contentType: String, teamName: String}
 }, {
     timestamps: true,
+
 });
 
 const teamImg = mongoose.model('teamImg', teamimgSchema);
