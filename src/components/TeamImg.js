@@ -10,6 +10,7 @@ export default class TeamImg extends React.Component {
             img: ''
         }
 
+
     }
     arrayBufferToBase64( buffer ) {
         var binary = '';

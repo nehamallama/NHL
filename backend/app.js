@@ -12,9 +12,10 @@ const port = process.env.PORT || 5000;
 
 app.use(cors());
 app.use(express.json());
-var impPath = "./routes/hurricanes.vadapt.767.high.36.png"
+var impPath = "./routes/hurricanes.vadapt.767.high.36.png";
 mongoose.connect("mongodb://localhost:27017/nhl");
 var db = mongoose.connection;
+//insert the json file into mongo
 db.once("open",()=>{
     console.log("db conn loaded")
     // var a = new teamImg;

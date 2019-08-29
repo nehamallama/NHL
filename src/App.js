@@ -22,7 +22,7 @@ const App = () => {
               <Switch>
                   <Route exact path="/" component={Main} />
                   <Route path="/teams/:team" component={Team} />
-                  <Route path="/test" component={TeamImg}/>
+
                   <Route  component={NotFound} />
               </Switch>
       </BrowserRouter>

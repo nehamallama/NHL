@@ -8,12 +8,13 @@ var fs = require('fs');
 // Grid.mongo = mongoose.mongo;
 
 router.route('/test').get((req, res) => {
-    teamImg.findOne({}, 'img createdAt', function(err, img) {
+    const hurricanes = "Carolina Hurricanes "
+    teamImg.findOne({"img.teamName":"Carolina Hurricanes" },  function(err, img) {
         if (err)
             res.send(err);
         res.contentType('json');
         res.send(img);
-    }).sort({ createdAt: 'desc' });
+    })
 });
 
 module.exports = router;

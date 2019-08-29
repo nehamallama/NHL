@@ -91,13 +91,8 @@ export default class Landing extends Component{
                 <Grid className="landing-grid">
                     <Cell col={12}>
                        <TeamImg data={this.state.teamsName}/>
-
-
                         <div className="banner-text">
-
                             <h1>{this.addSpacesToTeamName()}</h1>
-
-
                             <hr/>
 
                             <p>City: {this.state.locationName} | Venue: {this.state.venueName} | First Year Of Play: {this.state.firstYearOfPlay}</p>
