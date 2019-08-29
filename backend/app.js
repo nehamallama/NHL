@@ -18,19 +18,23 @@ var db = mongoose.connection;
 //insert the json file into mongo
 db.once("open",()=>{
     console.log("db conn loaded")
+
     // var a = new teamImg;
+
+
     teamListwPictures.map((element) => {
+        console.log(element)
         // console.log(element) //see what this prints, if it prints just one section of json we good so we can add reest to json like we did w this one
         var a = new teamImg;
         a.img.imgData = element.imgData;
         a.img.teamName = element.teamName;
         a.img.contentType = 'image/png';
-        a.save(function (err, a) {
-            if (err) throw err;
-
-            console.error('saved img to mongo');
-
-        })
+        // a.save(function (err, a) {
+        //     if (err) throw err;
+        //
+        //     console.error('saved img to mongo ' + element.teamName);
+        //
+        // })
     })
     // a.img.data = fs.readFileSync(impPath);
     // a.img.contentType = 'image/png';

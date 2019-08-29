@@ -24,7 +24,6 @@ export default class RecentGameList extends Component {
 
 
     render() {
-        // console.log("fuck" + this.latest);
         return (
             <Main data={this.state.latest}/>
 
