@@ -1,3 +1,13 @@
+### NHL APP ###
+An application to commemorate the 2018-2019 NHL season, developed by @nehamallama CC'19.
+
+
+
+
+
+
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
