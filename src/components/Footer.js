@@ -1,9 +1,9 @@
-import React, {Component} from 'react';
-import {
-    Carousel, CarouselItem, Container, Jumbotron, Card, Button, Nav,
-
-
-} from 'react-bootstrap';
+import React from 'react';
+// import {
+//     Carousel, CarouselItem, Container, Jumbotron, Card, Button, Nav,
+//
+//
+// } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.css';
 import { SocialIcon } from 'react-social-icons';
 

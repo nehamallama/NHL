@@ -1,4 +1,3 @@
-
 const fs = require("fs");
 // var impPath = "./routes/hurricanes.vadapt.767.high.36.png";
 var impPath2 = "./routes/";
@@ -18,17 +17,11 @@ fs.readdir(directoryPath, function (err, files) {
             console.log("BRUH")
         }
         const element_split = element.split('.') //get rid of png extension so we can pass our data
-            teamListwPictures.push({imgData: fs.readFileSync(impPath2 + `${element}`),
+            teamListwPictures.push({imgData: fs.readFileSync(impPath2 + `${element}`), //element is the team name
                 teamName: element_split[0]})
-
-
-
-
     })
 
 })
-
-
 // // const fs = require("fs");
 // // var impPath = "./routes/hurricanes.vadapt.767.high.36.png";
 //

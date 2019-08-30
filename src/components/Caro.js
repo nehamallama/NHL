@@ -1,7 +1,6 @@
-import React, {Component} from 'react';
+import React from 'react';
 import {
-    Carousel, CarouselItem, Container, Jumbotron, Card, Button
-
+    Carousel,  Card,
 
 } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.css';

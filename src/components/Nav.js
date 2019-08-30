@@ -1,12 +1,11 @@
-import React, {Component} from 'react';
+import React from 'react';
 import {
     Button, Form, FormControl, Navbar
 
 
 } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.css';
-import axios from "axios";
-import Header from "./Header"
+
 import { Redirect } from 'react-router-dom'
 import {NavLink} from "react-router-dom";
 
@@ -50,8 +49,14 @@ export default class Nav extends React.Component {
                     <FormControl inline type="text" placeholder="Search Team" className=" mr-sm-2" onChange={this.onSearchChange} />
                     <Button inline onClick={this.redirectIt}>Submit</Button>
                 </Form >
-                <NavLink to={`/`} ClassName="selected">NHL</NavLink>
-                <Button inline onClick={this.redirectIt}>Login</Button>
+                <nav className="navhere">
+                    <NavLink to={`/`} className="selected" >NHL</NavLink>
+                </nav>
+                <NavLink to="/login">
+                    <Button renderas="button">
+                        <span>Login</span>
+                    </Button>
+                </NavLink>
             </Navbar>
         );
     }}

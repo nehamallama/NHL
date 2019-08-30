@@ -8,7 +8,7 @@ export default class TeamImg extends React.Component {
             img: ''
         }
     }
-    arrayBufferToBase64( buffer ) {
+    arrayBufferToBase64( buffer ) { //where we pass the image data containing the image buffer for the teams assigned photo
         var binary = '';
         var bytes = new Uint8Array( buffer );
         var len = bytes.byteLength;

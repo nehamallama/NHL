@@ -1,12 +1,9 @@
 import React, { Component } from 'react';
 import { Grid, Cell } from 'react-mdl';
-import Header from "./Header";
 import Nav from "./Nav";
 import Footer from "./Footer";
-import {NavLink} from "react-router-dom";
 import {Table} from "react-bootstrap";
 import TeamImg from "./TeamImg"
-import {thisTypeAnnotation} from "@babel/types";
 
 export default class Landing extends Component{
     constructor(props) {
@@ -116,10 +113,9 @@ export default class Landing extends Component{
                                             {/*state will hold an array of the roster.... index into the roster where each player
                                             printed from map will be a single player from the selected teams  roster*/}
                                             {this.state.roster.map((player,index) => {
-                                                // console.log(player)
                                         return(
                                             //make a row for each player.person.fullName from the player array since were still inside map func
-                                            <tr> {player.person.fullName}
+                                            <tr key={index}> {player.person.fullName}
                                             {/*add table data to each column*/}
                                             <td>{player.jerseyNumber}</td>
                                                 {/*col1^^^*/}

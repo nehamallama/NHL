@@ -1,8 +1,8 @@
-import React, {Component} from 'react';
+import React from 'react';
 
 import 'bootstrap/dist/css/bootstrap.css';
-import { SocialIcon } from 'react-social-icons';
-import {NavLink} from "react-router-dom";
+// import { SocialIcon } from 'react-social-icons';
+// import {NavLink} from "react-router-dom";
 import Nav from "./Nav";
 
 export default class Header extends React.PureComponent {

@@ -1,9 +1,8 @@
 //react imports
-import React, {Component} from 'react';
+import React from 'react';
 import './App.css';
 import {
   BrowserRouter,
-     Redirect,
   Route,
   Switch
 } from 'react-router-dom';
@@ -11,10 +10,9 @@ import {
 //bootstrap imports
 import 'bootstrap/dist/css/bootstrap.css';
 import Main from "./components/Main";
-
 import NotFound from "./components/NotFound";
 import Team from "./components/Team";
-import TeamImg from "./components/TeamImg"
+import Login from "./components/Login";
 
 const App = () => {
   return (
@@ -22,6 +20,7 @@ const App = () => {
               <Switch>
                   <Route exact path="/" component={Main} />
                   <Route path="/teams/:team" component={Team} />
+                  <Route path="/login" component={Login}/>
                   <Route  component={NotFound} />
               </Switch>
       </BrowserRouter>
