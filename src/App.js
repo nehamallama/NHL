@@ -53,4 +53,6 @@ export default App;
 // add drop down with teams to navbar
 // sign up for some email news
 // add shadow/some sort of styling to the team logo on teams page
+// scaling the site properly so it is responsive and will work properly on all screen sizes breh bro brodie
+// sessions and cookies... store time on page
 

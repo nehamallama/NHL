@@ -2,15 +2,11 @@ import React from "react";
 import axios from "axios";
 
 export default class TeamImg extends React.Component {
-
     constructor(props) {
         super(props);
-
         this.state = {
             img: ''
         }
-
-
     }
     arrayBufferToBase64( buffer ) {
         var binary = '';
@@ -21,8 +17,6 @@ export default class TeamImg extends React.Component {
         }
         return window.btoa( binary );
     }
-
-
     componentDidMount() {
         // console.log('crap')
         // console.log(this.props.data)
