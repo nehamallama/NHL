@@ -17,6 +17,10 @@
 img {
   height: 500px;
 }
+/*stops scrolling on the page NOICE*/
+html, body {
+  overflow: hidden;
+}
 /*login*/
 .login{
   background: url("img/icebackground.jpg");
