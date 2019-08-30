@@ -17,17 +17,23 @@
 img {
   height: 500px;
 }
-/*stops scrolling on the page NOICE*/
-html, body {
-  overflow: hidden;
+body, html {
+  height: 100%;
+  margin: 0;
 }
+
+/*stops scrolling on the page NOICE*/
+
 /*login*/
 .login{
   background: url("img/icebackground.jpg");
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  padding-bottom: 100px;
+  height: 100%;
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+
 }
 
 
@@ -48,6 +54,7 @@ html, body {
     margin-left: auto;
     margin-right: auto;
 
+
   }
 
   .Login form {
@@ -58,6 +65,8 @@ html, body {
     margin-right: auto;
     margin-bottom: 350px;
     margin-top: 250px;
+    overflow: hidden;
+
   }
 
 

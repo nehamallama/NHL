@@ -24,7 +24,7 @@ export default class Login extends React.Component {
                                 <p className="service-icon"><i className="far fa-calendar-alt"></i></p>
                                 <p className="service-title"> </p>
                                     <Form>
-                                        <section className="intro2">
+                                        <section className="intro">
                                             <h2 > Login </h2>
                                         </section>
                                         <Form.Group controlId="formBasicEmail">
