@@ -50,7 +50,11 @@ export default class Nav extends React.Component {
                     <Button inline onClick={this.redirectIt}>Submit</Button>
                 </Form >
                 <nav className="navhere">
-                    <NavLink to={`/`} className="selected" >NHL</NavLink>
+                    <NavLink to={`/`} className="selected" ><img
+                        className="homelogo"
+                        src={require("../img/NHL_Logo.png")}
+                    /></NavLink>
+                    {/*we want an nhl logo image here that we can click that will redirect us*/}
                 </nav>
                 <NavLink to="/login">
                     <Button renderas="button">

@@ -546,7 +546,15 @@ div.services-team {
   padding: 0px 90px 20px 90px;
   text-align: center;
 }
+/*navbar*/
+.homelogo{
+  height: 50px;
+  display: block;
+  align-content: center;
 
+
+
+}
 
 
 /*footer ul {*/
