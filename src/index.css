@@ -550,7 +550,7 @@ div.services-team {
 .homelogo{
   height: 50px;
   display: block;
-  align-content: center;
+  align-content: space-evenly;
 
 
 
