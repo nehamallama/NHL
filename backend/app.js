@@ -5,16 +5,33 @@ const mongoose = require('mongoose');
 var bodyParser = require('body-parser');
 let teamImg = require("./models/teamimg")
 var fs = require("fs")
-// require('dotenv').config();
+var session = require('express-session');
+
 
 const app = express();
 const port = process.env.PORT || 5000;
 
 app.use(cors());
 app.use(express.json());
+
 var impPath = "./routes/hurricanes.vadapt.767.high.36.png";
 mongoose.connect("mongodb://localhost:27017/nhl");
 var db = mongoose.connection;
+
+app.use(session({
+    secret:"what thee hell",
+    resave: true, //save session no matter what
+    saveUninitialized: false ,//dont save new sessions that arent initialized
+    // store: new MongoStore({
+    //     //     mongooseConnection: db
+    //     // })
+}));
+app.use(function (req,res,next) {
+    //stuff a custom variable into the response
+    //sessions are attached to req objs
+    res.locals.currentUser = req.session.userId;//current user will hold the id variable
+    next()
+});
 //insert the json file into mongo
 db.once("open",()=>{
     console.log("db conn loaded")

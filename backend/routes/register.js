@@ -8,7 +8,7 @@ router.route('/register').post((req, res,next) => {
     if (req.body.email &&
         req.body.password &&
         req.body.confirmPassword) {
-        console.log(req.body.password)
+        // console.log(req.body.password)
 
         // confirm that user typed same password twice
         if (req.body.password !== req.body.confirmPassword) {

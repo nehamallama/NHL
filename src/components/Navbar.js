@@ -17,10 +17,11 @@ const Navbar = () => (
               {' NHL'}
 
           </Form>
+          if !currentUser
 
-          <Form inline>
-                  <Button type="submit">Login</Button>
-          </Form>
+              <Form inline>
+                      <Button type="submit">Login</Button>
+              </Form>
       </Navbar>
   </header>
 );

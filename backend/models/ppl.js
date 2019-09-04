@@ -21,7 +21,7 @@ PplSchema.statics.authenticate = function (email, password, callback) {
                 return callback(error);
             }
             bcrypt.compare(password, ppl.password, function(err, result){
-                console.log(ppl)
+                console.log("added: " + ppl)
                 if (result === true) return callback(null, ppl);
                 if (result === false) {
                     let error = new Error("Incorrect password.");
