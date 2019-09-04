@@ -12,7 +12,7 @@ fs.readdir(directoryPath, function (err, files) {
     }
     //listing all files using forEach
     files.map((element) => {
-        console.log(element)
+        // console.log(element)
         if (element === "St Louis Blues.png"){
             console.log("BRUH")
         }

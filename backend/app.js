@@ -23,7 +23,7 @@ db.once("open",()=>{
 
 
     teamListwPictures.map((element) => {
-        console.log(element)
+        // console.log(element)
         // console.log(element) //see what this prints, if it prints just one section of json we good so we can add reest to json like we did w this one
         var a = new teamImg;
         a.img.imgData = element.imgData;
@@ -77,6 +77,9 @@ app.use(express.static(__dirname + '/public'));
 
 const teamImgRoute = require("../backend/routes/teamimg")
 app.use("/",teamImgRoute);
+
+const registerRoute = require("../backend/routes/register")
+app.use("/", registerRoute);
 // const exercisesRouter = require('../backend/routes/exercises');
 // const usersRouter = require('../backend/routes/users');
 // app.use('/exercises', exercisesRouter);

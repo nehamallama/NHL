@@ -12,6 +12,7 @@ router.route('/teams/:team').get((req, res) => {
     const teamNameForPictureQuery = spliiting[2].replace(/([a-z])([A-Z])/g, '$1 $2');
 
 
+
     teamImg.findOne({"img.teamName": teamNameForPictureQuery },  function(err, img) {
         if (err)
             res.send(err);

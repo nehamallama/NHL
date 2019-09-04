@@ -181,7 +181,6 @@ header div.head  {
 
 }
 
-
 header div.head h1 {
   font-size: 5rem;
   font-weight: bold;
@@ -195,8 +194,6 @@ header div.head h1 {
 header div.head p {
   padding-left: 30px;
 }
-
-
 .contact {
   background: rgb(0, 99, 248);
   display: block;
@@ -217,8 +214,6 @@ Navlink {
 }
 
 /*------------- MAIN SECTION -------------------*/
-
-
 main {
 
   position: relative;
@@ -295,6 +290,7 @@ main section div p {
   bottom: 125px
 
 }
+/*standings "services"*/
 div.services {
   display: grid;
   height: auto;
@@ -351,10 +347,15 @@ footer {
 
   display: inline-grid;
 
+
 }
 footer h4{
   padding-top: 80px;
   margin-top: -60px
+}
+footer .middle-icon{
+  margin-right: 10px;
+  margin-left: 10px;
 }
 /*.containerfooter {*/
   /*height:100%;*/

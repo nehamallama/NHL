@@ -34,11 +34,6 @@ export default class Nav extends React.Component {
     redirectIt = () => {
         this.setState({isRedirected: true})
     }
-
-    shouldWe = () => {
-        if (this.state.isRedirected) return <Redirect to={`/teams/${this.state.searchText}`} />
-    }
-
     render() {
         // change the to prop to the next component
         if (this.state.isRedirected) return <Redirect to={`/teams/${this.state.searchText}`} />
@@ -46,7 +41,7 @@ export default class Nav extends React.Component {
         return (
             <Navbar className="bg-light justify-content-between">
                 <Form inline onSubmit={this.submit}>
-                    <FormControl inline type="text" placeholder="Search Team" className=" mr-sm-2" onChange={this.onSearchChange} />
+                    <FormControl inline type="text" placeholder="Search Team" className="mr-sm-2" onChange={this.onSearchChange} />
                     <Button inline onClick={this.redirectIt}>Submit</Button>
                 </Form >
                 <nav className="navhere">

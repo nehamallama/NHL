@@ -13,6 +13,7 @@ import Main from "./components/Main";
 import NotFound from "./components/NotFound";
 import Team from "./components/Team";
 import Login from "./components/Login";
+import Register from "./components/Register";
 
 const App = () => {
   return (
@@ -21,6 +22,7 @@ const App = () => {
                   <Route exact path="/" component={Main} />
                   <Route path="/teams/:team" component={Team} />
                   <Route path="/login" component={Login}/>
+                  <Route path="/register" component={Register}/>
                   <Route  component={NotFound} />
               </Switch>
       </BrowserRouter>
@@ -43,6 +45,7 @@ export default App;
 // teams page? other than landing page we  can have a page that will have rows storing each team and their data DONE
 // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // //
 // NOT DONE:
+// auth
 // replace contact button with login button???
 // replace log in button with random team button????
 // auth levels. logged in get access to click on each player for further stats
@@ -58,3 +61,5 @@ export default App;
 // scaling the site properly so it is responsive and will work properly on all screen sizes breh bro brodie
 // sessions and cookies... store time on page and all sorts of stuff if possilbe
 // make navbar prettier
+// add terms and conditions page/route
+// player stats from api if the user is logged in
