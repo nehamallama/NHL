@@ -80,6 +80,13 @@ app.use("/",teamImgRoute);
 
 const registerRoute = require("../backend/routes/register")
 app.use("/", registerRoute);
+
+const loginRoute = require("../backend/routes/login")
+app.use("/", loginRoute);
+
+
+
+
 // const exercisesRouter = require('../backend/routes/exercises');
 // const usersRouter = require('../backend/routes/users');
 // app.use('/exercises', exercisesRouter);

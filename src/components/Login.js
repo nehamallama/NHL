@@ -7,44 +7,98 @@ import {
 import Nav from "./Nav";
 import Footer from "./Footer";
 import {Cell, Grid} from "react-mdl";
-import {NavLink} from "react-router-dom";
+import {NavLink, Redirect} from "react-router-dom";
+import axios from "axios";
 
 export default class Login extends React.Component {
     constructor(props) {
         super(props);
+        this.onChangePassword = this.onChangePassword.bind(this);
+        this.onChangeUsername =this.onChangeUsername.bind(this);
         this.state = {
-
+            isAuthed: false,
+            email:" ",
+            password:" ",
         }
     }
+    onChangeUsername = (e) => {
+        this.setState( {
+            email: e.target.value
+        })
+    }
+    onChangePassword = (e) => {
+        this.setState({
+            password: e.target.value
+        })
+    }
+
+    onSubmit = (e) => {
+        e.preventDefault();
+
+        const user = {
+            email: this.state.email,
+            password: this.state.password,
+
+        }
+        axios.post('http://localhost:5000/login', user)
+            .then(res => {
+                console.log(res.data)
+                if (res.data === "Frig" ) {
+                    // if we print frig, change the state to true and then do the redirect?
+                    this.setState({isAuthed: true})
+                    this.setState({isAuthed: false})
+                    console.log(this.state.isAuthed )
+                    // we want to redirect on this submit to an authed page or sumn like dat
+
+                }
+            })
+
+
+
+    }
+
     render() {
+
+        if (this.state.isAuthed) return <Redirect to={'/'} />
+
+
         return (
             <div style={{width: '100%', margin: 'auto'}} className={"login"}>
                     <Nav />
                             <div className="Login">
                                 <p className="service-icon"><i className="far fa-calendar-alt"></i></p>
                                 <p className="service-title"> </p>
-                                    <Form>
-                                        <section className="intro">
-                                            <h2 > Login </h2>
-                                        </section>
-                                        <Form.Group controlId="formBasicEmail">
-                                            <Form.Label>Email address</Form.Label>
-                                            <Form.Control type="email" placeholder="Enter email" />
-                                            <Form.Text className="text-muted">
-                                                We'll never share your email with anyone else.
-                                            </Form.Text>
-                                        </Form.Group>
-                                        <Form.Group controlId="formBasicPassword">
-                                            <Form.Label>Password</Form.Label>
-                                            <Form.Control type="password" placeholder="Password" />
-                                        </Form.Group>
-                                        <Form.Group controlId="formBasicChecbox">
-                                            <NavLink to={"/register"}> New User? Click Here To Sign Up </NavLink>
-                                        </Form.Group>
-                                        <Button variant="primary" type="submit">
-                                            Submit
-                                        </Button>
-                                    </Form>
+                                <Form onSubmit={this.onSubmit}>
+                                    <section className="intro">
+                                        <h2 > Login </h2>
+                                    </section>
+                                    {/*email*/}
+                                    <Form.Group  controlId="formBasicEmail">
+                                        <Form.Label>Email address</Form.Label>
+                                        <input  type="text"
+                                                required
+                                                className="form-control"
+                                                value={this.state.email}
+                                                onChange={this.onChangeUsername}
+                                                name='email' placeholder="Enter email"
+                                        />
+                                        {/*<Form.Control type="email" name='email' placeholder="Enter email"  />*/}
+                                        <Form.Text className="text-muted">
+                                            We'll never share your email with anyone else.
+                                        </Form.Text>
+                                    </Form.Group>
+                                    {/*passwprd*/}
+                                    <Form.Group controlId="formBasicPassword">
+                                        <Form.Label>Password</Form.Label>
+                                        <Form.Control type='password' name='password' placeholder="Password" onChange={this.onChangePassword} />
+                                    </Form.Group>
+                                <Form.Group controlId="formBasicChecbox">
+                                    <NavLink to={"/register"}> New User? Click Here To Sign Up </NavLink>
+                                </Form.Group>
+                                <Button variant="primary" type="submit" onClick={this.onSubmit}>
+                                    Submit
+                                </Button>
+                                </Form>
 
 
                             </div>
