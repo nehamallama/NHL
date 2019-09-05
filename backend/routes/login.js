@@ -12,8 +12,11 @@ router.route('/login').post((req, res,next) => {
             } else {
                 req.session.userId = ppl._id;
                 req.session.email = ppl.email;
-                console.log("returning")
-                res.send("Frig")
+                console.log(req.session)
+                res.send(req.session)
+
+
+
             }
         });
     }

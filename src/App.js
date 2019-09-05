@@ -15,6 +15,11 @@ import Team from "./components/Team";
 import Login from "./components/Login";
 import Register from "./components/Register";
 
+import withContext from "./Context" //weird name note that
+const UserSignInWithContext = withContext(Login); // we pass UserSignIn to the providers context
+
+
+
 const App = () => {
   return (
       <BrowserRouter>
@@ -22,6 +27,7 @@ const App = () => {
                   <Route exact path="/" component={Main} />
                   <Route path="/teams/:team" component={Team} />
                   <Route path="/login" component={Login}/>
+                  <Route path="/signin" component={UserSignInWithContext} />
                   <Route path="/register" component={Register}/>
                   <Route  component={NotFound} />
               </Switch>
@@ -43,10 +49,11 @@ export default App;
 // fix bug: if we enter localhost/teams/Dallas Stars 2222 the team name and roster will show dallas stars 222 DONE
 // draw up design for each teams page... Store img from mongo? DONE
 // teams page? other than landing page we  can have a page that will have rows storing each team and their data DONE
+// add nhl logo to navbar where it says nhl DONE
 // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // //
 // NOT DONE:
 // auth
-// replace contact button with login button???
+// do contact page
 // replace log in button with random team button????
 // auth levels. logged in get access to click on each player for further stats
 // random players in carousel??

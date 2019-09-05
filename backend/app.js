@@ -17,15 +17,16 @@ app.use(express.json());
 var impPath = "./routes/hurricanes.vadapt.767.high.36.png";
 mongoose.connect("mongodb://localhost:27017/nhl");
 var db = mongoose.connection;
-
+var MongoStore = require("connect-mongo")(session);
 app.use(session({
     secret:"what thee hell",
     resave: true, //save session no matter what
     saveUninitialized: false ,//dont save new sessions that arent initialized
-    // store: new MongoStore({
-    //     //     mongooseConnection: db
-    //     // })
-}));
+    cookie: {expires: new Date(253402300000000)},
+    store: new MongoStore({
+            mongooseConnection: db
+        })
+    }));
 app.use(function (req,res,next) {
     //stuff a custom variable into the response
     //sessions are attached to req objs

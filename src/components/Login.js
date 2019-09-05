@@ -20,7 +20,7 @@ export default class Login extends React.Component {
         this.state = {
             isAuthed: false,
             email:" ",
-            password:" ",
+            password:" "
         }
     }
     onChangeUsername = (e) => {
@@ -46,16 +46,13 @@ export default class Login extends React.Component {
 
         axios.post('http://localhost:5000/login', user)
             .then(res => {
-                console.log(res)
-
-
-
-
-                if (res.data === "Frig" ) {
+                console.log(res.data)
+                //if the user has a session id
+                if (res.data.userId) {
                     // if we print frig, change the state to true and then do the redirect?
                     this.setState({isAuthed: true});
                     this.setState({isAuthed: false});
-                    console.log(this.state.isAuthed )
+
                     // we want to redirect on this submit to an authed page or sumn like dat
 
                 }
