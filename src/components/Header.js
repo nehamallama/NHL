@@ -11,7 +11,7 @@ export default class Header extends React.PureComponent {
         return (
 
             <header>
-                <Nav/>
+                {/*<Nav/>*/}
                 <div className="head">
                     <h1>NHL 2018-2019< br/> Data and Statistics</h1>
                     <div>

@@ -1,114 +1,99 @@
-import React, {Component} from 'react';
-import {
-    Button, Form, FormControl, Navbar, Table
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+import Form from './Form';
 
-
-} from 'react-bootstrap';
-import Nav from "./Nav";
-import Footer from "./Footer";
-import {Cell, Grid} from "react-mdl";
-import {NavLink, Redirect} from "react-router-dom";
-import axios from "axios";
-
-export default class Login extends React.Component {
-    constructor(props) {
-        super(props);
-        this.onChangePassword = this.onChangePassword.bind(this);
-        this.onChangeUsername =this.onChangeUsername.bind(this);
-        this.onSubmit = this.onSubmit.bind(this);
-
-        this.state = {
-            isAuthed: false,
-            email:" ",
-            password:" "
-        }
+export default class UserSignIn extends Component {
+    state = {
+        email: '',
+        password: '',
+        errors: [],
     }
-    onChangeUsername = (e) => {
-        this.setState( {
-            email: e.target.value
-        })
+
+    render() {
+        const {
+            email,
+            password,
+            errors,
+        } = this.state;
+
+        return (
+            <div className="bounds">
+                <div className="grid-33 centered signin">
+                    <h1>Sign In</h1>
+                    <Form
+                        cancel={this.cancel}
+                        errors={errors}
+                        submit={this.submit}
+                        submitButtonText="Sign In"
+                        elements={() => (
+                            <React.Fragment>
+                                <input
+                                    id="email"
+                                    name="email"
+                                    type="text"
+                                    value={email}
+                                    onChange={this.change}
+                                    placeholder="Email" />
+                                <input
+                                    id="password"
+                                    name="password"
+                                    type="password"
+                                    value={password}
+                                    onChange={this.change}
+                                    placeholder="Password" />
+                            </React.Fragment>
+                        )} />
+                    <p>
+                        Don't have a user account? <Link to="/register">Click here</Link> to sign up!
+                    </p>
+                </div>
+            </div>
+        );
     }
-    onChangePassword = (e) => {
-        this.setState({
-            password: e.target.value
-        })
+
+    change = (event) => {
+        const name = event.target.name;
+        const value = event.target.value;
+
+        this.setState(() => {
+            return {
+                [name]: value
+            };
+        });
     }
-    onSubmit = (e) => {
-        e.preventDefault();
 
-        const user = {
-            email: this.state.email,
-            password: this.state.password,
+    submit = () => {
+        const { context } = this.props; //get providers prop here... found with value in provider func
+        console.log(this.props)
+        const { from } = this.props.location.state || { from: { pathname: '/authenticated' } };
+        //If the user is redirected to /signin from a previous route, submit() should navigate t
+        // Them back to the original route once they authenticate.
+        const { email, password } = this.state; //unpacking from this.state
+        context.actions.signIn(email,password)
+            .then( user => {
 
-        }
+                if (user === null) {
+                    this.setState(() => {
+                        return { errors: [ 'Sign-in was unsuccessful' ] };
+                    });
+                }
+                else{
+                    this.props.history.push("/authenticated"); //from is the pathname the user was on before clicking the next shit
+                    //The from variable passed to history.push(from) contains information about the pathname an unauthenticated
+                    // user redirected from (via this.props.location.state). For example, if a user redirects to the sign up page
+                    // from /settings, from will be equal to pathname: "/settings".
 
-        // console.log(user);
 
-        axios.post('http://localhost:5000/login', user)
-            .then(res => {
-                console.log(res.data)
-                //if the user has a session id
-                if (res.data.userId) {
-                    // if we print frig, change the state to true and then do the redirect?
-                    this.setState({isAuthed: true});
-                    this.setState({isAuthed: false});
-
-                    // we want to redirect on this submit to an authed page or sumn like dat
 
                 }
             })
-
-
-
+            .catch( err => {
+                console.log(err);
+                this.props.history.push('/error');
+            })
     }
-    render() {
 
-        if (this.state.isAuthed) return <Redirect to={'/'} />
-
-
-        return (
-            <div style={{width: '100%', margin: 'auto'}} className={"login"}>
-                    <Nav />
-                            <div className="Login">
-                                <p className="service-icon"><i className="far fa-calendar-alt"></i></p>
-                                <p className="service-title"> </p>
-                                <Form onSubmit={this.onSubmit}>
-                                    <section className="intro">
-                                        <h2 > Login </h2>
-                                    </section>
-                                    {/*email*/}
-                                    <Form.Group  controlId="formBasicEmail">
-                                        <Form.Label>Email address</Form.Label>
-                                        <input  type="text"
-                                                required
-                                                className="form-control"
-                                                value={this.state.email}
-                                                onChange={this.onChangeUsername}
-                                                name='email' placeholder="Enter email"
-                                        />
-                                        {/*<Form.Control type="email" name='email' placeholder="Enter email"  />*/}
-                                        <Form.Text className="text-muted">
-                                            We'll never share your email with anyone else.
-                                        </Form.Text>
-                                    </Form.Group>
-                                    {/*passwprd*/}
-                                    <Form.Group controlId="formBasicPassword">
-                                        <Form.Label>Password</Form.Label>
-                                        <Form.Control type='password' name='password' placeholder="Password" onChange={this.onChangePassword} />
-                                    </Form.Group>
-                                <Form.Group controlId="formBasicChecbox">
-                                    <NavLink to={"/register"}> New User? Click Here To Sign Up </NavLink>
-                                </Form.Group>
-                                <Button variant="primary" type="submit" onClick={this.onSubmit}>
-                                    Submit
-                                </Button>
-                                </Form>
-
-
-                            </div>
-
-                    </div>
-
-        );
+    cancel = () => {
+        this.props.history.push('/');
     }
 }

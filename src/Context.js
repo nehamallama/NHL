@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import Data from './Data';
-import Cookies from 'js-cookie';
 
 const Context = React.createContext();
 
@@ -14,6 +13,7 @@ export class Provider extends Component {
     state = {
         authenticatedUser:  null
     };
+
 
     render() {
         const {authenticatedUser} = this.state;
@@ -35,16 +35,18 @@ export class Provider extends Component {
     }
 
 
-    signIn = async (username, password) => {
-        const user = await this.data.getUser(username,password); //awaits the promise returned by get user
+    signIn = async (email, password) => {
+        const user = await this.data.getIt(email,password); //awaits the promise returned by get user
         // GET DATA FROM MONGOHERE FOR LOG IN
+        // console.log("DATA")
+        // console.log(user)
         if (user !== null) {
             this.setState(() => {
                 return {
                     authenticatedUser: user,
                 };
             });
-            Cookies.set('authenticatedUser',JSON.stringify(user),  { expires: 1 });
+            // Cookies.set('authenticatedUser',JSON.stringify(user),  { expires: 1 });
             // cookie name, The second argument specifies the value to store in the cookie. In this case, store the stringified user object:
             //1, for example, creates a cookie that expires 1 day from now.
         }
@@ -52,14 +54,14 @@ export class Provider extends Component {
         return user;
     }
 
-    // signOut = () => {
-    //     this.setState(() => {
-    //         return {
-    //             authenticatedUser: null,
-    //         };
-    //     });
-    //     Cookies.remove('authenticatedUser');
-    // }
+    signOut = () => {
+        this.setState(() => {
+            return {
+                authenticatedUser: null,
+            };
+        });
+        // Cookies.remove('authenticatedUser');
+    }
 }
 
 export const Consumer = Context.Consumer;

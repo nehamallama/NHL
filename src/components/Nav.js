@@ -6,7 +6,7 @@ import {
 } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.css';
 
-import { Redirect } from 'react-router-dom'
+import {Link, Redirect} from 'react-router-dom'
 import {NavLink} from "react-router-dom";
 
 export default class Nav extends React.Component {
@@ -35,8 +35,10 @@ export default class Nav extends React.Component {
         this.setState({isRedirected: true})
     }
     render() {
+        const { context } = this.props;
+        const authUser = context.authenticatedUser; //either an object holding the authenticated user's name and username values, or null.
         // change the to prop to the next component
-        if (this.state.isRedirected) return <Redirect to={`/teams/${this.state.searchText}`} />
+        // if (this.state.isRedirected) return <Redirect to={`/teams/${this.state.searchText}`} />
 
         return (
             <Navbar className="bg-light justify-content-between">
@@ -51,11 +53,22 @@ export default class Nav extends React.Component {
                     /></NavLink>
                     {/*we want an nhl logo image here that we can click that will redirect us*/}
                 </nav>
-                <NavLink to="/login">
-                    <Button renderas="button">
-                        <span>Login</span>
-                    </Button>
-                </NavLink>
+                <nav>
+                    {authUser ?
+                        <React.Fragment>
+                            <span>Welcome, {authUser.email}!</span>
+                            <Link className="signout" to="/signout">Sign Out</Link>
+                        </React.Fragment>
+                        :
+                        <React.Fragment>
+                            <NavLink to="/login">
+                                <Button renderas="button">
+                                    <span>Login</span>
+                                </Button>
+                            </NavLink>
+                        </React.Fragment>
+                    }
+                </nav>
             </Navbar>
         );
     }}

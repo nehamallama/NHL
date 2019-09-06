@@ -76,7 +76,7 @@ export default class Login extends React.Component {
 
         return (
             <div style={{width: '100%', margin: 'auto'}} className={"login"}>
-                <Nav  />
+                {/*<Nav  />*/}
                 <div className="Login">
                     <p className="service-icon"><i className="far fa-calendar-alt"></i></p>
                     <p className="service-title"> </p>

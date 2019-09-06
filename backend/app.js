@@ -105,6 +105,10 @@ app.use("/", loginRoute);
 
 
 
+
+
+
+
 // const exercisesRouter = require('../backend/routes/exercises');
 // const usersRouter = require('../backend/routes/users');
 // app.use('/exercises', exercisesRouter);
