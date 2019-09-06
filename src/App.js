@@ -41,7 +41,7 @@ const App = () => {
                   <Route exact path="/" component={Main} />
                   <Route path="/teams/:team" component={Team} />
                   {/*<Route path="/login" component={Login}/>*/}
-                  <Route path="/authenticated" component={Authenticated} />
+                  <PrivateRoute path="/authenticated" component={Authenticated} />
                   <Route path="/login" component={UserSignInWithContext} />
                   <Route path="/signout" component={UserSignOutWithContext} />
                   <Route path="/register" component={Register}/>

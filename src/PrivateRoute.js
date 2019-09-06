@@ -21,7 +21,7 @@ export default ({ component: Component, ...rest }) => { //The function first des
             <Component {...props} />
             ) : (
              // Pass a state property whose value is the current location of the route the user tried to access:
-            <Redirect to={{pathname: '/login',state: { from: props.location },}} /> //The object contains information about the path to redirect to (if not authenticated),
+            <Redirect to={{pathname: '/login'}} /> //The object contains information about the path to redirect to (if not authenticated),
               // and the route the user was trying to access before being redirected.
 
             //Since pathname: '/signin' renders the UserSignIn component on redirect, you can access from via this.props
