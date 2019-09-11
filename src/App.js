@@ -13,24 +13,19 @@ import Main from "./components/Main";
 import NotFound from "./components/NotFound";
 import Team from "./components/Team";
 import Login from "./components/Login";
-import Register from "./components/Register";
 //subscribers
 import withContext from "./Context" //weird name note that
 import Nav from "../src/components/Nav"
 import UserSignOut from "../src/components/UserSignOut"
 import Authenticated from "../src/components/Authenticated"
+import Register from "../src/components/Register"
 import PrivateRoute from "../src/PrivateRoute"
 
 const UserSignInWithContext = withContext(Login); // we pass UserSignIn to the providers context
 const NavWithContext = withContext(Nav)
 const UserSignOutWithContext = withContext(UserSignOut);
 const AuthWithContext = withContext(Authenticated); // we pass Auth to the providers context
-
-
-
-
-
-
+const RegisterWithContext = withContext(Register);
 
 const App = () => {
   return (
@@ -41,10 +36,10 @@ const App = () => {
                   <Route exact path="/" component={Main} />
                   <Route path="/teams/:team" component={Team} />
                   {/*<Route path="/login" component={Login}/>*/}
-                  <PrivateRoute path="/authenticated" component={Authenticated} />
+                  <PrivateRoute path="/authenticated" component={AuthWithContext} />
                   <Route path="/login" component={UserSignInWithContext} />
                   <Route path="/signout" component={UserSignOutWithContext} />
-                  <Route path="/register" component={Register}/>
+                  <Route path="/register" component={RegisterWithContext}/>
                   <Route  component={NotFound} />
               </Switch>
           </div>

@@ -1,7 +1,8 @@
 
-/* =================================
-  WEB FONTS
-==================================== */
+
+  /* =================================
+    WEB FONTS
+  ==================================== */
 
 @import url(https://fonts.googleapis.com/css?family=Roboto:400,500,700);
 
@@ -28,49 +29,108 @@ body, html {
 .login{
   background: url("img/icebackground.jpg");
   height: 100%;
+  position: fixed;
+  width: 100%;
+
+
+
   /* Center and scale the image nicely */
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-
-
+  overflow: hidden;
 }
 
 
-
-.Login form  h2{
+.Login form  h2 {
   font-size: 4.3rem;
   text-transform: uppercase;
-  color:black;
+  color: black;
   text-align: center;
   text-transform: uppercase;
   padding-right: 10px;
 
+
 }
-
-@media all and (min-width: 480px) {
-  .Login {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-
+  .Login section  h2 {
+    font-size: 4.3rem;
+    text-transform: uppercase;
+    color: black;
+    text-align: center;
+    text-transform: uppercase;
+    padding-right: 10px;
 
   }
-
+@media all and (min-width: 480px) {
+  .Login {
+    /*display: block;*/
+    /*margin-left: auto;*/
+    /*margin-right: auto;*/
+    /*margin-top: auto;*/
+    width: auto;
+    height: auto;
+    position: absolute;
+    left: 50%;
+    top: 45%;
+    transform: translate(-50%, -50%);
+  }
   .Login form {
-
     max-width: 320px;
     display: block;
     margin-left: auto;
     margin-right: auto;
-    margin-bottom: 350px;
-    margin-top: 250px;
+    margin-bottom: auto;
     overflow: hidden;
 
   }
-
-
 }
+  @media all and (min-width: 480px) {
+    .Login {
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+
+
+    }
+    .Login input {
+      max-width: 320px;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      margin-bottom: auto;
+      margin-bottom: 10px;
+      overflow: hidden;
+      width: 100%;
+
+    }
+    .Login label {
+      max-width: 320px;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      margin-bottom: auto;
+      margin-bottom: 10px;
+      overflow: hidden;
+      text-align: center;
+
+
+    }
+  }
+  .forform {
+    max-width: 320px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: auto;
+    margin-bottom: 10px;
+    overflow: hidden;
+    text-align: center;
+  }
+
+
+
+
+
 
 
 /*.container {*/
@@ -358,31 +418,31 @@ footer .middle-icon{
   margin-left: 10px;
 }
 /*.containerfooter {*/
-  /*height:100%;*/
+/*height:100%;*/
 /*}*/
 /*body {*/
-  /*margin:0;*/
-  /*padding:0;*/
-  /*height:100%;*/
+/*margin:0;*/
+/*padding:0;*/
+/*height:100%;*/
 /*}*/
 /*.containerfooter {*/
-  /*min-height:100%;*/
-  /*position:relative;*/
+/*min-height:100%;*/
+/*position:relative;*/
 /*}*/
 /*.headerfooter {*/
-  /*background:#ff0;*/
-  /*padding:10px;*/
+/*background:#ff0;*/
+/*padding:10px;*/
 /*}*/
 /*.bodyfooter {*/
-  /*padding:10px;*/
-  /*padding-bottom:60px;   !* Height of the footer *!*/
+/*padding:10px;*/
+/*padding-bottom:60px;   !* Height of the footer *!*/
 /*}*/
 /*.footerfooter {*/
-  /*position:absolute;*/
-  /*bottom:0;*/
-  /*width:100%;*/
-  /*height:60px;   !* Height of the footer *!*/
-  /*background:#6cf;*/
+/*position:absolute;*/
+/*bottom:0;*/
+/*width:100%;*/
+/*height:60px;   !* Height of the footer *!*/
+/*background:#6cf;*/
 /*}*/
 
 /* contact page css */

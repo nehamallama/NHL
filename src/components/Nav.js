@@ -38,7 +38,7 @@ export default class Nav extends React.Component {
         const { context } = this.props;
         const authUser = context.authenticatedUser; //either an object holding the authenticated user's name and username values, or null.
         // change the to prop to the next component
-        // if (this.state.isRedirected) return <Redirect to={`/teams/${this.state.searchText}`} />
+        if (this.state.isRedirected) return <Redirect to={`/teams/${this.state.searchText}`} />
 
         return (
             <Navbar className="bg-light justify-content-between">
@@ -56,7 +56,7 @@ export default class Nav extends React.Component {
                 <nav>
                     {authUser ?
                         <React.Fragment>
-                            <span>Welcome, {authUser.email}!</span>
+                            <span>Welcome, {authUser}!</span>
                             <Link className="signout" to="/signout">Sign Out</Link>
                         </React.Fragment>
                         :

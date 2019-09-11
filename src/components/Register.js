@@ -1,128 +1,128 @@
-import React, {Component} from 'react';
-import {
-    Button, Form, FormControl, Navbar, Table
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+import Form from './Form';
 
-
-} from 'react-bootstrap';
-import Nav from "./Nav";
-import {NavLink, Redirect} from "react-router-dom";
-import axios from "axios"
-
-
-export default class Login extends React.Component {
-    constructor(props) {
-        super(props);
-        this.onChangePassword = this.onChangePassword.bind(this);
-        this.onChangeConfirmPassword = this.onChangeConfirmPassword.bind(this);
-        this.onChangeUsername =this.onChangeUsername.bind(this);
-        this.onSubmit = this.onSubmit.bind(this);
-        this.state = {
-            isAuthed: false,
-            email:" ",
-            password:" ",
-            confirmPassword: " "
-
-        }
+export default class Register extends Component {
+    state = {
+        email: '',
+        password: '',
+        confirmPassword: '',
+        errors: [],
     }
 
 
-    onChangeUsername = (e) => {
-        this.setState( {
-            email: e.target.value
-        })
-    }
-    onChangePassword = (e) => {
-        this.setState({
-            password: e.target.value
-        })
-    }
-    onChangeConfirmPassword = (e) => {
-        this.setState({
-            confirmPassword: e.target.value
-        })
+    render() {
+        console.log(this.state)
+
+
+        const email = this.state.email; //state that is typed into form
+        const password = this.state.password;
+        const confirmPassword = this.state.confirmPassword;
+        const errors = this.state.errors;
+
+
+
+        return (
+            <div className="login">
+                <div className="Login">
+                    <section className="intro">
+                        <h2 > Register </h2>
+                    </section>
+                    <Form
+                        cancel={this.cancel}
+                        errors={errors}
+                        submit={this.submit}
+                        submitButtonText="Sign Up"
+                        elements={() => (
+                            <React.Fragment>
+                                {/*onChange is a built in react function that will allow us to record
+                  what the user has typed in, each keystroke is an event that gets recorded and updated as its typed in*/}
+                                <input
+                                    id="email"
+                                    name="email"
+                                    type="email"
+                                    value={email}
+                                    onChange={this.change}
+                                    placeholder="email" />
+                                <input
+                                    id="password"
+                                    name="password"
+                                    type="password"
+                                    value={password}
+                                    onChange={this.change}
+                                    placeholder="Password" />
+                                <input
+                                id="confirmPassword"
+                                name="confirmPassword"
+                                type="password"
+                                value={confirmPassword}
+                                onChange={this.change}
+                                placeholder="confirmPassword" />
+                            </React.Fragment>
+                        )} />
+                    <p>
+                        Already have a user account? <Link to="/login">Click here</Link> to Login!
+                    </p>
+                </div>
+            </div>
+        );
     }
 
-    onSubmit = (e) => {
-        e.preventDefault();
+    change = (event) => {
+        //set the
+        const name = event.target.name;
+        const value = event.target.value;
 
+        this.setState(() => {
+            return {
+                [name]: value
+            };
+        });
+    }
+
+    submit = () => {
+        console.log(this.props.context)
+        const { context } = this.props; // We subscribe to this providers context in the App.js file.. getting props here .. found with value in provider func
+        const email = this.state.email; //state that is typed into form
+        const password = this.state.password;
+        const confirmPassword = this.state.confirmPassword;
+        const errors = this.state.errors;
         const user = {
-            email: this.state.email,
-            password: this.state.password,
-            confirmPassword: this.state.confirmPassword
-        }
+            email,password, confirmPassword
+        };
+        context.data.createUser(user) //data passes itsself to context.. user sign up is a consumer of the prodvided context so thats how we can get the create User method
+            .then(handshake => { // since createUser is an async function, it will return a promise
 
-        // console.log(user);
-
-        axios.post('http://localhost:5000/register', user)
-            .then(res => {
-
-                if (res.data === "Frig" ) {
-                    // if we print frig, change the state to true and then do the redirect?
-                    this.setState({isAuthed: true});
-                    this.setState({isAuthed: false});
-                    console.log(this.state.isAuthed )
-                    // we want to redirect on this submit to an authed page or sumn like dat
+                if (handshake === null) {
+                    this.setState(() => {
+                        return { errors: [ 'Sign-in was unsuccessful' ] };
+                    });
+                }
+                else {
+                    // console.log(`${username} is signed in and authed`);
+                    context.actions.signIn(email, password)
+                        .then(() => {
+                            this.props.history.push('/authenticated');
+                        });
+                    //s signIn() is an asynchronous operation that returns a promise.
+                    // Once the promise is fulfilled (the user was authenticated),
+                    // we'll navigate the user to the /authenticated URL path.
 
                 }
             })
-
-
-
+            .catch(err => {
+                console.log(err);
+                this.props.history.push("/error")// props always will have the history stack attached to it keeping track of browser history
+                //React Router lets you create a 404-like error route that displays when a URL's path does not match any of the paths defined in your routes.
+                // /error does not match any URL path defined inside the <Switch> component of App.js.
+                // Because of this, when the URL path changes to /error, the router is going to render the NotFound component written in components/NotFound.js.
+            })
     }
-    //proper form entry for all three of the properties of a person object
-    render() {
-
-        if (this.state.isAuthed) return <Redirect to={'/'} />
-
-        return (
-            <div style={{width: '100%', margin: 'auto'}} className={"login"}>
-                {/*<Nav  />*/}
-                <div className="Login">
-                    <p className="service-icon"><i className="far fa-calendar-alt"></i></p>
-                    <p className="service-title"> </p>
-                    <Form onSubmit={this.onSubmit}>
-                        <section className="intro">
-                            <h2 > Register </h2>
-                        </section>
-                        {/*email*/}
-                        <Form.Group  controlId="formBasicEmail">
-                            <Form.Label>Email address</Form.Label>
-                            <input  type="text"
-                                    required
-                                    className="form-control"
-                                    value={this.state.email}
-                                    onChange={this.onChangeUsername}
-                                    name='email' placeholder="Enter email"
-                            />
-                            {/*<Form.Control type="email" name='email' placeholder="Enter email"  />*/}
-                            <Form.Text className="text-muted">
-                                We'll never share your email with anyone else.
-                            </Form.Text>
-                        </Form.Group>
-                        {/*passwprd*/}
-                        <Form.Group controlId="formBasicPassword">
-                            <Form.Label>Password</Form.Label>
-                            <Form.Control type='password' name='password' placeholder="Password" onChange={this.onChangePassword} />
-                        </Form.Group>
-                        {/*confirm password*/}
-                        <Form.Group controlId="formBasicPassword">
-                            <Form.Label>Confirm Password</Form.Label>
-                            <Form.Control type='password' name='confirmPassword' placeholder="Confirm Password" onChange={this.onChangeConfirmPassword}/>
-                        </Form.Group>
-                        {/*back to login*/}
-                        <Form.Group controlId="formBasicChecbox">
-                            <NavLink to={"/login"}> Already registered? Click Here To Login </NavLink>
-                        </Form.Group>
-                        <Button variant="primary" type="submit" onClick={this.onSubmit}>
-                            Submit
-                        </Button>
-                    </Form>
 
 
-                </div>
 
-            </div>
 
-        );
+    cancel = () => {
+        this.props.history.push('/error');
     }
 }

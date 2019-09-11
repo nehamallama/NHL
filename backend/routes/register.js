@@ -4,6 +4,7 @@ let Ppl = require("../models/ppl")
 
 router.route('/register').post((req, res,next) => {
     console.log('reached post on backend')
+    console.log(req.body)
 
     if (req.body.email &&
         req.body.password &&
@@ -30,7 +31,7 @@ router.route('/register').post((req, res,next) => {
                 // req.session.name = ppl.name;
 
                 // cool we could do a redirect to another backend route here once were loaded to get even more ata and then redirect somehwere again in the front end
-                res.send("Frig")
+                res.send("authed")
             }
         });
     }else{

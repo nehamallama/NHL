@@ -76,17 +76,25 @@ export default class Data {
     }
 
     async createUser(user) {
-        const response = await this.api('/users', 'POST', user); // gets
-        if (response.status === 201) {
-            return [];
-        }
-        else if (response.status === 400) {
-            return response.json().then(data => {
-                return data.errors;
-            });
-        }
-        else {
-            throw new Error();
-        }
+        const users_email = await axios.post('http://localhost:5000/register', user)
+            .then(response => {
+                if (response.data){
+                    console.log(response.data)
+                    return response.data
+                }
+            })
+        return users_email
+        // const response = await this.api('/users', 'POST', user); // gets
+        // if (response.status === 201) {
+        //     return [];
+        // }
+        // else if (response.status === 400) {
+        //     return response.json().then(data => {
+        //         return data.errors;
+        //     });
+        // }
+        // else {
+        //     throw new Error();
+        // }
     }
 }

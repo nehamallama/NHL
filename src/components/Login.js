@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, } from 'react-router-dom';
+import {NavLink} from "react-router-dom";
+
 import Form from './Form';
+import Nav from "./Nav";
 
 export default class UserSignIn extends Component {
     state = {
@@ -17,14 +20,17 @@ export default class UserSignIn extends Component {
         } = this.state;
 
         return (
-            <div className="bounds">
-                <div className="grid-33 centered signin">
-                    <h1>Sign In</h1>
+            <div className="login">
+
+                <div className="Login">
+                    <section className="intro">
+                        <h2 > Login </h2>
+                    </section>
                     <Form
                         cancel={this.cancel}
                         errors={errors}
                         submit={this.submit}
-                        submitButtonText="Sign In"
+                        submitButtonText="Login"
                         elements={() => (
                             <React.Fragment>
                                 <input
@@ -41,11 +47,20 @@ export default class UserSignIn extends Component {
                                     value={password}
                                     onChange={this.change}
                                     placeholder="Password" />
+
                             </React.Fragment>
-                        )} />
+                        )}
+                    >
+
+
+
+
+                    </Form>
+
                     <p>
-                        Don't have a user account? <Link to="/register">Click here</Link> to sign up!
+                        Dont have an account? <NavLink to="/register">Click here</NavLink> to Register!
                     </p>
+
                 </div>
             </div>
         );

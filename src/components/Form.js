@@ -1,4 +1,10 @@
 import React from 'react';
+import {
+    Button, Form, FormControl, Navbar, Table
+
+
+} from 'react-bootstrap';
+import {NavLink} from "react-router-dom";
 
 export default (props) => {
     const {
@@ -20,22 +26,27 @@ export default (props) => {
     }
 
     return (
-        <div>
-            <ErrorsDisplay errors={errors} />
+        <div className="forform">
+            {/*<ErrorsDisplay errors={errors} />*/}
             {/*//gives itself props*/}
-            <form onSubmit={handleSubmit}>
+            <Form onSubmit={handleSubmit}>
+                <Form.Text className="text-muted">
+                    We'll never share your email with anyone else.
+                </Form.Text>
                 {elements()}
-                <div className="pad-bottom">
-                    <button className="button" type="submit">{submitButtonText}</button>
-                    <button className="button button-secondary" onClick={handleCancel}>Cancel</button>
-                </div>
-            </form>
+
+                    <Button className="button" type="submit">{submitButtonText}</Button>
+
+
+
+            </Form>
         </div>
     );
 }
 
 function ErrorsDisplay({ errors }) {
     let errorsDisplay = null;
+    console.log(errors)
 
     if (errors.length) {
         errorsDisplay = (
