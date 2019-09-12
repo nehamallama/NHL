@@ -38,7 +38,11 @@ export default class Nav extends React.Component {
         const { context } = this.props;
         const authUser = context.authenticatedUser; //either an object holding the authenticated user's name and username values, or null.
         // change the to prop to the next component
-        if (this.state.isRedirected) return <Redirect to={`/teams/${this.state.searchText}`} />
+        const search_trimmed = this.state.searchText.replace(/\s/g,'')
+        console.log(search_trimmed)
+
+        if (this.state.isRedirected) return <Redirect to={`/teams/${search_trimmed}`} />
+        //if there us
 
         return (
             <Navbar className="bg-light justify-content-between">

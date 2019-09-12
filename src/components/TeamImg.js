@@ -20,7 +20,9 @@ export default class TeamImg extends React.Component {
     componentDidMount() {
         // console.log('crap')
         // console.log(this.props.data)
+        console.log(this.props.data)
         axios.get(`http://localhost:5000/teams/${this.props.data}`)
+
             .then(response => {
                 // console.log(response.data.img.imgData.data)//lol the dot notation to get to the actual image buffer data
                 var base64Flag = 'data:image/jpeg;base64,';
