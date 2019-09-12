@@ -79,7 +79,7 @@ export default class UserSignIn extends Component {
 
     submit = () => {
         const { context } = this.props; //get providers prop here... found with value in provider func
-        console.log(this.props)
+
         const { from } = this.props.location.state || { from: { pathname: '/authenticated' } };
         //If the user is redirected to /signin from a previous route, submit() should navigate t
         // Them back to the original route once they authenticate.

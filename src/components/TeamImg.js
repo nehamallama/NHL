@@ -20,7 +20,6 @@ export default class TeamImg extends React.Component {
     componentDidMount() {
         // console.log('crap')
         // console.log(this.props.data)
-        console.log(this.props.data)
         axios.get(`http://localhost:5000/teams/${this.props.data}`)
 
             .then(response => {

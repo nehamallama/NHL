@@ -86,7 +86,7 @@ export default class Landing extends Component{
         return(
             //if we  have a change in nav and someone presses the button, do a new get with the new match params
             <div style={{width: '100%', margin: 'auto'}}>
-           {/*<Nav />*/}
+
                 <Grid className="landing-grid">
                     <Cell col={12}>
                        <TeamImg data={this.props.match.params.team}/>

@@ -27,7 +27,6 @@ export default class Nav extends React.Component {
     submit = e => {
         e.preventDefault();
         // with the new search state from above, get the state and perform a search with it to local/team/"searchValue"
-
         e.currentTarget.reset();
     }
 
@@ -41,15 +40,23 @@ export default class Nav extends React.Component {
         const search_trimmed = this.state.searchText.replace(/\s/g,'')
         console.log(search_trimmed)
 
-        if (this.state.isRedirected) return <Redirect to={`/teams/${search_trimmed}`} />
-        //if there us
+    //     <NavLink to={`/teams/${search_trimmed}`} className="contact">
+    //         <Button renderas="button">
+    //         <span>New User? Click Here to Register</span>
+    // </Button>
+    // </NavLink>
 
         return (
             <Navbar className="bg-light justify-content-between">
                 <Form inline onSubmit={this.submit}>
-                    <FormControl inline type="text" placeholder="Search Team" className="mr-sm-2" onChange={this.onSearchChange} />
-                    <Button inline onClick={this.redirectIt}>Submit</Button>
-                </Form >
+                <FormControl inline type="text" placeholder="Search Team" className="mr-sm-2" onChange={this.onSearchChange} />
+                    <NavLink to={`/teams/${search_trimmed}`} >
+                        <Button renderas="button">
+                            <span>Click Here To Search Team</span>
+                        </Button>
+                    </NavLink>
+            </Form >
+
                 <nav className="navhere">
                     <NavLink to={`/`} className="selected" ><img
                         className="homelogo"
@@ -75,4 +82,14 @@ export default class Nav extends React.Component {
                 </nav>
             </Navbar>
         );
-    }}
+    }
+
+    redirect = () => {
+        const search_trimmed = this.state.searchText.replace(/\s/g,'')
+
+        this.props.history.push(`/teams/${search_trimmed}`)
+    }
+
+
+
+}
