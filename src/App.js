@@ -62,9 +62,9 @@ export default App;
 // draw up design for each teams page... Store img from mongo? DONE
 // teams page? other than landing page we  can have a page that will have rows storing each team and their data DONE
 // add nhl logo to navbar where it says nhl DONE
+// auth DONE
 // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // //
 // NOT DONE:
-// auth
 // do contact page
 // replace log in button with random team button????
 // auth levels. logged in get access to click on each player for further stats
