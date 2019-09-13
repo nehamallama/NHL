@@ -79,7 +79,6 @@ export default class UserSignIn extends Component {
 
     submit = () => {
         const { context } = this.props; //get providers prop here... found with value in provider func
-
         const { from } = this.props.location.state || { from: { pathname: '/authenticated' } };
         //If the user is redirected to /signin from a previous route, submit() should navigate t
         // Them back to the original route once they authenticate.
@@ -93,7 +92,7 @@ export default class UserSignIn extends Component {
                     });
                 }
                 else{
-                    this.props.history.push("/authenticated"); //from is the pathname the user was on before clicking the next shit
+                    this.props.history.push(from); //from is the pathname the user was on before clicking the next shit
                     //The from variable passed to history.push(from) contains information about the pathname an unauthenticated
                     // user redirected from (via this.props.location.state). For example, if a user redirects to the sign up page
                     // from /settings, from will be equal to pathname: "/settings".

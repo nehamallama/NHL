@@ -26,6 +26,7 @@ const NavWithContext = withContext(Nav)
 const UserSignOutWithContext = withContext(UserSignOut);
 const AuthWithContext = withContext(Authenticated); // we pass Auth to the providers context
 const RegisterWithContext = withContext(Register);
+const TeamWithContext = withContext(Team)
 
 const App = () => {
   return (
@@ -34,9 +35,10 @@ const App = () => {
               <NavWithContext/>
               <Switch>
                   <Route exact path="/" component={Main} />
-                  <Route path="/teams/:team" component={Team} />
+                  <PrivateRoute path="/teams/:team" component={TeamWithContext} />
                   {/*<Route path="/login" component={Login}/>*/}
                   <PrivateRoute path="/authenticated" component={AuthWithContext} />
+                  <PrivateRoute path="/settings" component={AuthWithContext} />
                   <Route path="/login" component={UserSignInWithContext} />
                   <Route path="/signout" component={UserSignOutWithContext} />
                   <Route path="/register" component={RegisterWithContext}/>
@@ -63,6 +65,7 @@ export default App;
 // teams page? other than landing page we  can have a page that will have rows storing each team and their data DONE
 // add nhl logo to navbar where it says nhl DONE
 // auth DONE
+// add nhl logo to navbar where it says nhl DONE
 // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // //
 // NOT DONE:
 // do contact page
@@ -72,7 +75,6 @@ export default App;
 // autofill for team names
 // Make not found page nicer
 // add google maps for the location of the team like eliteprospects does
-// add nhl logo to navbar where it says nhl
 // access to click on each player via roster.person.id
 // add drop down with teams to navbar
 // sign up for some email news

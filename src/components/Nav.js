@@ -84,11 +84,7 @@ export default class Nav extends React.Component {
         );
     }
 
-    redirect = () => {
-        const search_trimmed = this.state.searchText.replace(/\s/g,'')
 
-        this.props.history.push(`/teams/${search_trimmed}`)
-    }
 
 
 

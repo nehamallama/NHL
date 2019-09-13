@@ -83,6 +83,7 @@ export default class Register extends Component {
     submit = () => {
         console.log(this.props.context)
         const { context } = this.props; // We subscribe to this providers context in the App.js file.. getting props here .. found with value in provider func
+
         const email = this.state.email; //state that is typed into form
         const password = this.state.password;
         const confirmPassword = this.state.confirmPassword;
