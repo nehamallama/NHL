@@ -69,7 +69,6 @@ export default App;
 // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // //
 // NOT DONE:
 // do contact page
-// replace log in button with random team button????
 // auth levels. logged in get access to click on each player for further stats
 // random players in carousel??
 // autofill for team names

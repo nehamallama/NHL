@@ -68,7 +68,11 @@ export default class Nav extends React.Component {
                     {authUser ?
                         <React.Fragment>
                             <span>Welcome, {authUser}!</span>
-                            <Link className="signout" to="/signout">Sign Out</Link>
+                            <NavLink to={"/signout"} >
+                                <Button renderas="button">
+                                    <span>Sign Out</span>
+                                </Button>
+                            </NavLink>
                         </React.Fragment>
                         :
                         <React.Fragment>
