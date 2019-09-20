@@ -4,6 +4,7 @@ import Nav from "./Nav";
 import Footer from "./Footer";
 import {Table} from "react-bootstrap";
 import TeamImg from "./TeamImg"
+import {NavLink} from "react-router-dom";
 
 export default class Landing extends Component{
     constructor(props) {
@@ -73,16 +74,18 @@ export default class Landing extends Component{
         })
     }
 
+    cityLink() {
 
-    addSpacesToTeamName2() {
-        const teamName = this.props.match.params.team;
-        const teamNameForTeamHeader = teamName.replace(/([a-z])([A-Z])/g, '$1 $2');
         return (
-            <p>{teamNameForTeamHeader} | {teamNameForTeamHeader}</p>
-        );
+            <a href={`https://www.google.com/maps/place/${this.state.locationName}`}>{this.state.locationName} </a>
+
+        )
 
     }
+
     render() {
+
+
         return(
             //if we  have a change in nav and someone presses the button, do a new get with the new match params
             <div style={{width: '100%', margin: 'auto'}}>
@@ -91,10 +94,16 @@ export default class Landing extends Component{
                     <Cell col={12}>
                        <TeamImg data={this.props.match.params.team}/>
                         <div className="banner-text">
-                            <h1>{this.addSpacesToTeamName()}</h1>
-                            <hr/>
+                            <a href={`https://www.${this.props.match.params.team}.com`}>
+                                <h1>{this.addSpacesToTeamName()}</h1>
+                            </a>
 
-                            <p>City: {this.state.locationName} | Venue: {this.state.venueName} | First Year Of Play: {this.state.firstYearOfPlay}</p>
+                            <hr/>
+                            <div>
+                              <p>City: {this.cityLink()} | Venue: {this.state.venueName} | First Year Of Play: {this.state.firstYearOfPlay}</p>
+
+                            </div>
+
                         </div>
 
                         <div className="services-team">
