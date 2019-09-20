@@ -66,10 +66,10 @@ export default App;
 // add nhl logo to navbar where it says nhl DONE
 // auth DONE
 // add nhl logo to navbar where it says nhl DONE
+// auth levels. logged in get access to click on each player for further stats DONE, must be logged in to view team roster
+// fix placement of users email once logged in DONE
 // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // //
 // NOT DONE:
-// do contact page
-// auth levels. logged in get access to click on each player for further stats
 // random players in carousel??
 // autofill for team names
 // Make not found page nicer
@@ -77,9 +77,7 @@ export default App;
 // access to click on each player via roster.person.id
 // add drop down with teams to navbar
 // sign up for some email news
-// add shadow/some sort of styling to the team logo on teams page
 // scaling the site properly so it is responsive and will work properly on all screen sizes breh bro brodie
 // sessions and cookies... store time on page and all sorts of stuff if possilbe
-// make navbar prettier
-// add terms and conditions page/route
 // player stats from api if the user is logged in
+// ga
